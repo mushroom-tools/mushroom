@@ -1,0 +1,22 @@
+
+.search{
+	background-color: #f5f5f5;
+	width: inherit;
+	height: 40px;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+#search-form-input{
+	width: 400px;
+	margin-right: 3px;
+}
+
+.page-header{
+  border-bottom: 5px solid #ddd !important;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
