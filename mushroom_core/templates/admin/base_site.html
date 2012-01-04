@@ -1,0 +1,19 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ 'Admin Page' }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Admin Page' %}</h1>
+{% endblock %}
+
+{% block nav-global %}
+<div style="margin-left: 10px;"><p>
+| <a href="/">Home</a> 
+| <a href="/dashboard">Dashboard</a> 
+| <a href="/timeline">Timeline</a> 
+| <a href="/wall">Wall</a> 
+| <a href="/transcripts">Transcripts</a> 
+| <a href="/browse">Browse Source</a> 
+| <a href="/issue">Issues</a> |</p></div>
+{% endblock %}

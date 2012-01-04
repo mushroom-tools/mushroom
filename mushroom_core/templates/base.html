@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Mushroom | {% block title %}{% endblock %}</title>
+		
+		<!-- style -->
+		<link rel="stylesheet" href="/static/css/bootstrap.css">
+		<link rel="stylesheet" href="/static/css/style.css">
+	</head>
+	<body>
+		<!-- topbar -->
+		<div class="topbar">
+			<div class="fill">
+				<div class="container">
+					<a class="brand" href="/">Mushroom</a>
+					<ul class="nav">
+						{% if request.path != '/join_member/' %}
+						<li {% if request.path == '/dashboard/' %} class="active"{% endif %}>
+							<a href="/dashboard">Dashboard</a>
+						</li>
+						<li {% if request.path == '/timeline/' %} class="active"{% endif %}>
+							<a href="/timeline">Timeline</a>
+						</li>
+						<li {% if request.path == '/wall/' %} class="active"{% endif %}>
+							<a href="/wall">Wall</a>
+						</li>
+						<li {% if request.path == '/transcripts/' %} class="active"{% endif %}>
+							<a href="/transcripts">Transcripts</a>
+						</li>
+						<li {% if request.path == '/browse/' %} class="active"{% endif %}>
+							<a href="/browse">Browse Source</a>
+						</li>
+						<li {% if request.path == '/issue/' %} class="active"{% endif %}>
+							<a href="/issue">Issues</a>
+						</li>
+						<li {% if request.path == '/admin/' %} class="active"{% endif %}>
+							<a href="/admin">Admin</a>
+						</li>
+						{% else %}
+						<li><a href="/">Home</a></li>
+						<li><a href="/login">Login</a></li>
+						<li class="active"><a href="/join_member">Join Member</a></li>
+						{% endif %}
+					</ul>
+					{% if user.is_active %}
+					<ul class="nav secondary-nav">
+						<li><a href="#">Hi! <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong></a></li>
+						<li><a href="/logout">[Logout]</a></li>
+					</ul>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<!-- top end -->
+		
+		
+		<!-- container -->
+		<div class="container">
+			<!-- project name & description -->
+			<div class="hero-unit">
+				<h1>{% block head %}{% endblock %}</h1>
+				<p>{% block description %}{% endblock %}</p>
+			</div>
+			{% block content %}{% endblock %}
+		</div>
+		<!-- container end -->		
+		
+		<!-- javascript -->
+		<script type="text/javascript" src="/static/js/jquery-1.6.4.js"></script>
+	</body>
+</html>
