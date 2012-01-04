@@ -1,0 +1,6 @@
+*.orig
+.DS_Store
+._*
+*.swp
+*.bak
+
