@@ -4,16 +4,13 @@ from django.http import HttpResponse
 from django.template import Context
 from django.template.loader import get_template
 from django.contrib.auth.decorators import login_required
-from dashboard.models import Project
 
 @login_required
-def dashboard_page(request):
-	projects = Project.objects.order_by('-id')
-	template = get_template('dashboard.html')
+def browse_page(request):
+	template = get_template('browse.html')
 	variables = Context({
 		'user': request.user,
 		'request': request,
-		'projects': projects,
 	})
 	output = template.render(variables)
 	return HttpResponse(output)

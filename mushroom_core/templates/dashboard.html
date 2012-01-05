@@ -3,4 +3,58 @@
 
 {% block title %}{{ 'Dashboard' }}{% endblock %}
 {% block head %}{{ 'Dashboard' }}{% endblock %}
-{% block description %}{{ 'Joining Member can only at <a href="/admin">Admin</a> page' }}{% endblock %}
+{% block description %}{{ 'Projects...' }}{% endblock %}
+
+{% block content %}
+
+{% if projects %}
+<h1>Projects</h1>
+<table class="condensed-table">
+	<thead>
+		<th>#</th>
+		<th>Project Name</th>
+	</thead>
+	<tbody>
+		{% for project in projects %}
+		<tr>
+			<td>{{ project.id }}</td>
+			<td>{{ project.name }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% endif %}
+
+<p>&nbsp;</p><p>&nbsp;</p>
+<h1>Recently Issues</h1>
+<table class="condensed-table">
+	<thead>
+		<th>#</th>
+		<th>Concerned Project</th>
+		<th>Issue Name</th>
+		<th>Description</th>
+	</thead>
+	<tbody>
+		<td>1</td>
+		<td>Mushroom Project</th>
+		<td>Project is not completed.</td>
+		<td>T.T</td>
+	</tbody>
+</table>
+
+<p>&nbsp;</p><p>&nbsp;</p>
+<h1>Opened Wall</h1>
+<table class="condensed-table">
+	<thead>
+		<th>#</th>
+		<th>Wall Name</th>
+		<th>Attending Members</th>
+	</thead>
+	<tbody>
+		<td>1</td>
+		<td>Mushroom!</td>
+		<td>Jweb, basket, risa243, hanalee</td>
+	</tbody>
+</table>
+
+{% endblock %}

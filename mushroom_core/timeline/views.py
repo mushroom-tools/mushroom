@@ -7,9 +7,9 @@ from django.contrib.auth.decorators import login_required
 from dashboard.models import Project
 
 @login_required
-def dashboard_page(request):
+def timeline_page(request):
 	projects = Project.objects.order_by('-id')
-	template = get_template('dashboard.html')
+	template = get_template('timeline.html')
 	variables = Context({
 		'user': request.user,
 		'request': request,
