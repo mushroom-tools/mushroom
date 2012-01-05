@@ -8,6 +8,8 @@ from xml.dom import minidom
 
 
 svnLogList = []
+
+
 configFile="config.txt"
 XMLconfigFile="config.xml"
 
@@ -53,15 +55,15 @@ class MushroomScmSvn:
             str = s.split('=')            
             
             if(str[0]=="BIN"):                
-                print("SVN Binary Directory : "+str[1])        
+            #    print("SVN Binary Directory : "+str[1])        
                 self.SvnBinaryDir = str[1];
                 
             if(str[0]=="REPO"):                
-                print("Repository Directory : "+str[1])
+            #    print("Repository Directory : "+str[1])
                 self.RepositoryDir = str[1];
                 
             if(str[0]=="PORT"):
-                print("Server Port : "+str[1])   
+            #    print("Server Port : "+str[1])   
                 self.ServerPort = str[1]
             
                 
@@ -256,13 +258,87 @@ class MushroomScmSvn:
             
             svnLogList.append(SvnRevisionHistory(rev,s_ath,s_date, PathLists, msg_data))
  
+        file.close();
+        os.system('del __log.xml')
+    
+    
+    def SVNGetFileListRoot(self, list):
+                
+        os.system('svn list ' + self.SvnAddress+ '> __file_list.txt')
+        
+        file=open('__file_list.txt', 'r')
+        
+        
+        while 1:
+            line = file.readline()
+            if not line:
+                break
+            line = line.strip()            
+            pathSize = len(line)
+            if line[pathSize-1] == '/':
+                fd = 'D'
+            else:
+                fd = 'F'                
             
-        """
-                   
-            if(len(msg) != 0):
-                print(msg[0].firstChild.data)
-            """
+            list.append(FileAndFolerList(fd, line))
+                
+        file.close()
+        os.system('del __file_list.txt')
+        
+
+    def SVNGetFileListFolder(self, list, path):
+        os.system('svn list ' + self.SvnAddress+ '/'+path +' > __file_list.txt')
+    
+        file=open('__file_list.txt', 'r')
+        
+        
+        while 1:
+            line = file.readline()
+            if not line:
+                break
+            line = line.strip()            
+            pathSize = len(line)
+            if line[pathSize-1] == '/':
+                fd = 'D'
+            else:
+                fd = 'F'                
             
+            list.append(FileAndFolerList(fd, path+line))
+                
+        file.close()
+        os.system('del __file_list.txt')
+
+
+      
+    def SVNGetFileListFolderAndRev(self, list, path, rev):
+        #CommnadString = 'svn list ' + self.SvnAddress+ '/'+path +' -r '+ rev. +' > __file_list.txt'
+        os.system('svn list ' + self.SvnAddress+ '/'+path +' -r '+ str(rev) +' > __file_list.txt')
+        
+    
+        file=open('__file_list.txt', 'r')
+        
+        
+        while 1:
+            line = file.readline()
+            if not line:
+                break
+            line = line.strip()            
+            pathSize = len(line)
+            if line[pathSize-1] == '/':
+                fd = 'D'
+            else:
+                fd = 'F'                
+            
+            list.append(FileAndFolerList(fd, path+line))
+                
+        file.close()
+        os.system('del __file_list.txt')
+      
+
+class FileAndFolerList:
+    def __init__(self, fd, path):
+        self.fd = fd
+        self.path = path
 
 class Paths:
     def __init__(self, kind, action, path):
@@ -314,7 +390,7 @@ else :
 
 
 
-
+"""
 svn.LoadRootRevision()
 
 
@@ -334,16 +410,41 @@ def PrintSVNLog():
         
 
 PrintSVNLog()
+"""
+
+filelist = []
+
+#svn.SVNGetFileList(filelist)
+#svn.SVNGetFileListFolder(filelist, 'Folder1/')
+svn.SVNGetFileListFolderAndRev(filelist, "", 7)
 
 
+def PrintSVNFileList(list):
+    for name in list:
+        if name.fd == 'F':
+            print 'FILE   :' + name.path
+        else :
+            print 'FOLDER :' + name.path
 
 
+#PrintSVNFileList(filelist)
 
+#flist = []
+#svn.SVNGetFileListRoot(flist)
 
+def PrintSVNAllFileList(list):
+    
+    for name in list:
+        if name.fd == 'F':
+            print 'FILE   :' + name.path
+        else :
+            print 'FOLDER :' + name.path
+            sublist=[]
+            svn.SVNGetFileListFolder(sublist, name.path)
+            PrintSVNAllFileList(sublist)
 
-
-
-
+        
+PrintSVNAllFileList(filelist)
 
 
 
