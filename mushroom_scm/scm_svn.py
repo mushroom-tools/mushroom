@@ -7,6 +7,7 @@ import datetime
 from xml.dom import minidom
 
 
+svnLogList = []
 configFile="config.txt"
 XMLconfigFile="config.xml"
 
@@ -231,30 +232,30 @@ class MushroomScmSvn:
         
         for index in range(logSize):
             rev = RevisionList[index].getAttribute('revision')                        
-            print(rev)
-            
-            ath = RevisionList[index].getElementsByTagName('author')            
-            print(ath[0].firstChild.data)
+             
+            ath = RevisionList[index].getElementsByTagName('author')
+            s_ath = ath[0].firstChild.data      
             
             date = RevisionList[index].getElementsByTagName('date')            
-            print(date[0].firstChild.data)
+            s_date = date[0].firstChild.data
             
+            PathLists = []
             path = RevisionList[index].getElementsByTagName('path')                        
             NumberOfpath = len(path)
             for pidx in range(NumberOfpath):
-                print(path[pidx].firstChild.data)
                 df = path[pidx].getAttribute('kind')
                 act = path[pidx].getAttribute('action')
-                print(df)
-                print(act)
-                
+
+                PathLists.append(Paths(df, act, path[pidx].firstChild.data))
+
+            msg_data =""
             msg = RevisionList[index].getElementsByTagName('msg')     
             if(msg[0].firstChild != None):
-                print(msg[0].firstChild.data)
-                
-            #print(msg[0].firstChild.data)
+                msg_data = msg[0].firstChild.data
             
-            print('-------------------------------------------------------------')    
+            
+            svnLogList.append(SvnRevisionHistory(rev,s_ath,s_date, PathLists, msg_data))
+ 
             
         """
                    
@@ -263,24 +264,28 @@ class MushroomScmSvn:
             """
             
 
-        
+class Paths:
+    def __init__(self, kind, action, path):
+        self.kind = kind
+        self.action = action
+        self.path = path    
+
     
 class SvnRevisionHistory:
         
-        
-    def __init__(self, rev, author, date, df, action, file):
+    Paths = []
+
+    def __init__(self, rev, author, date, pPaths, msg):
         self.Revision = rev
         self.Author = author
         self.Date = date
-        self.FileOrDir = df
-        self.Action = action
-        self.Filename = file
-        
-    
-        
+        self.Paths = pPaths
+        self.Message = msg     
+           
     
 svn = MushroomScmSvn()
 svn.LoadConfigFile()
+
 #svn.LoadXMLConfigFile()
 #svn.StartServerDeamon();
 #svn.StopServerDeamon();
@@ -292,13 +297,6 @@ if(res == True ):
 else :
     print('Svn Service Stop')
 """
-svn.LoadRootRevision()
-
-
-#svn.ShowAllUsers()
-#svn.AddNewUser('newbie','passwd');
-#svn.ShowAllUsers()
-#svn.SetUserPasswd('leehana','hana2');
 
 """
 res = svn.DeleteUser('newbie');
@@ -309,6 +307,50 @@ else :
     
 """
 
+#svn.ShowAllUsers()
+#svn.AddNewUser('newbie','passwd');
+#svn.ShowAllUsers()
+#svn.SetUserPasswd('leehana','hana2');
 
 
-#Permission User - Read only, Write Allow
+
+
+svn.LoadRootRevision()
+
+
+def PrintSVNLog():
+    for log in svnLogList:
+        print 'Revision :'+log.Revision
+        print 'Author   :'+log.Author
+        print 'Date     :'+log.Date
+        print 'Message  :'+log.Message
+        
+                
+        for path in log.Paths:
+            print 'Action   :'+ path.action
+            print 'kind     :'+ path.kind
+            print 'path     :'+ path.path
+        print '------------------------------------------'
+        
+
+PrintSVNLog()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
