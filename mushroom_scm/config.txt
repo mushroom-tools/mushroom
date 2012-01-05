@@ -1,0 +1,3 @@
+BIN=C:\svn_bin\bin
+REPO=C:\svn_test
+PORT=3690
