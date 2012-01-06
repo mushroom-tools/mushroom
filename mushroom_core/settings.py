@@ -5,6 +5,9 @@ import django.contrib.auth
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+SKYPE_USERNAME = 'mushroom_conf'
+SKYPE_PASSWORD = 'mushroom0'
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
