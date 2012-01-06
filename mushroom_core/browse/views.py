@@ -6,6 +6,8 @@ from django.template.loader import get_template
 from django.contrib.auth.decorators import login_required
 
 from utils.scm_svn import MushroomScmSvn
+from utils.relativeDates import timesince
+import datetime
 
 @login_required
 def browse_page(request, path):
@@ -19,11 +21,17 @@ def browse_page(request, path):
 
 	svn = MushroomScmSvn()
 	svn.SVNGetFileListFolderAndRev(filelist, path, "HEAD")
+
 	for file in filelist:
-		if file.fd == 'F':
+		file.rev = "r" + file.rev
+		file.message = svn.GetCommitMsgByRev(file.rev)
+		file.date = datetime.datetime.strptime(file.date, "%Y-%m-%dT%H:%M:%S.%fZ")
+		file.date = timesince(file.date)
+
+		if file.fd == 'file':
 			file.name = file.path.split("/")[-1]
 		else:
-			file.name = file.path.split("/")[-2] + "/"
+			file.name = file.path.split("/")[-1] + "/"
 	
 	split_path = path_str.split("/")
 	split_path.pop()

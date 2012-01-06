@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ 'Issue Tracker' }}{% endblock %}
+{% block head %}{{ 'Issues' }}{% endblock %}
+{% block description %}{{ 'Mushroom Issue Tracker' }}{% endblock %}
+
+{% block content %}
+
+<select>
+{% for team in teams %}
+  <option value={{team.id}}>{{team.name}}</option>
+{% endfor %}
+</select>
+
+<h2><div style="float:right;"><a href="/issue_create"><button class="btn large primary">Create Issue</button></a></div></h2>
+<br><br>
+<h3>{{ 'Assigned to you' }}<h3>
+<table class="condensed-table">
+	<tbody>
+		{% for issue in issues %}
+			{% for assign in assigns %}
+				{% if issue.id == assign.issue_id %}
+				<tr>
+					<td width="95%">					
+					{% if issue.status == 1 %}
+					<span class="label notice">opened</span>
+					{% else %}
+					<span class="label important">closed</span>
+					{% endif %}
+					<a href={{ issue.id }}>{{ issue.name }}</a></td>
+					{% if issue.status == 1 %}
+					<td><a href={{'/issue_close/'}}{{ issue.id }}><button class="btn small default">Close</button></a></td>
+					{% else %}
+					<td><a href="/issue_create/"><button class="btn small default">Open</button></a></td>
+					{% endif %}
+				</tr>
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	</tbody>
+</table>
+      
+<h3>{{ opened }} opened issues</h3>
+
+<table class="condensed-table">
+	<tbody>
+		{% for issue in issues %}
+			{% if issue.status == 1 %}
+			<tr>
+				<td width="95%">
+					{% if issue.status == 1 %}
+					<span class="label notice">opened</span>
+					{% else %}
+					<span class="label important">closed</span>
+					{% endif %}
+				<a href={{ issue.id }}>{{ issue.name }}</a></td>
+				<td><a href={{'/issue_close/'}}{{ issue.id }}><button class="btn small default">Close</button></a></td>
+			</tr>
+			{% endif %}
+		{% endfor %}
+	</tbody>
+</table>
+
+<h3>{{ closed }} closed issues </h3>
+
+<table class="condensed-table">
+	<tbody>
+		{% for issue in issues %}
+			{% if issue.status == 0 %}
+			<tr>
+				<td width="95%">
+					{% if issue.status == 1 %}
+					<span class="label notice">opened</span>
+					{% else %}
+					<span class="label important">closed</span>
+					{% endif %}
+				<a href={{ issue.id }}>{{ issue.name }}</a></td>
+				<td><a href={{'/issue_reopen/'}}{{ issue.id }}><button class="btn small default">Open</button></a></td>
+			</tr>
+			{% endif %}
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

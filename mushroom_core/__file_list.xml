@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<lists>
+<list
+   path="svn://127.0.0.1">
+<entry
+   kind="file">
+<name>README</name>
+<size>0</size>
+<commit
+   revision="1">
+<date>2012-01-05T23:29:17.402735Z</date>
+</commit>
+</entry>
+<entry
+   kind="dir">
+<name>test</name>
+<commit
+   revision="3">
+<date>2012-01-05T23:32:05.293188Z</date>
+</commit>
+</entry>
+</list>
+</lists>

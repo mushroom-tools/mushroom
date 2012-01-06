@@ -45,26 +45,36 @@ class MushroomScmSvn:
 		self.SvnAddress = settings.SVN_ADDRESS
 		
 	def SetPortNumber(self,port):
-		self.ServerPort = port
-	
+		ServerPort = port
+
+
 	def SetRepositoryDirectory(self,dir):
-		self.RepositoryDir = dir
-		
+		RepositoryDir = dir
+
+
+	def SaveConfigFile():
+		print(configFile)
+
+
 	def StartServerDeamon(self):		
-		binPath = self.SvnBinaryDir.strip() + '\\svnserve.exe"'
-		binPath = '""'+binPath	
+		binPath=self.SvnBinaryDir.strip() + '\\svnserve.exe"'
+		binPath='""'+binPath	
 		CommandString = 'sc create svn_server binpath= ' + binPath + ' --service -r "' + self.RepositoryDir.strip() + ' start= auto'
-		os.system(CommandString)
-		os.system('sc start svn_server');
-		
+		print CommandString
+		#os.system(CommandString)
+		#os.system('sc start svn_server');
+
+
 	def StopServerDeamon(self): 
 		os.system('sc stop svn_server')
 		os.system('sc delete svn_server')
 
+
 	def RestartServerDeamon(self): 
 		os.system('sc stop svn_server')
 		os.system('sc start svn_server');
-		
+
+
 	def ShowCurrentServerStatus(self):
 		os.system('sc query svn_server > out')
 		file = open('out', 'r');
@@ -73,14 +83,17 @@ class MushroomScmSvn:
 		for line in lines:
 			if(line.find('SERVICE_NAME') == 0):
 				res = True
-		
+
 		file.close()
 		os.system('del out')
 		if res == True :
 			return True
 		else:  
 			return False
-	
+
+
+
+
 	def ShowAllUsers(self):
 		authzFilePath = self.RepositoryDir.strip() + '\\conf\\passwd'
 		file = open(authzFilePath, 'r')
@@ -88,7 +101,7 @@ class MushroomScmSvn:
 			line = file.readline()
 			if not line:
 				break		 
-			   
+
 			if(line[0] != '#' and line[0] != '\n'):
 				str = line.split('=')
 				if(len(str) == 2):
@@ -96,26 +109,29 @@ class MushroomScmSvn:
 					passwd = str[1]
 					print(name)
 		file.close()
-					
+
+
 	def AddNewUser(self, nName, nPasswd):
 		authzFilePath = self.RepositoryDir.strip() + '\\conf\\passwd'
 		file = open(authzFilePath, 'a') 
+
+
 		file.write(nName + ' = ' + nPasswd)		
 		file.close()
-			 
-		
+
+
 	def DeleteUser(self, nName):
 		authzFilePath = self.RepositoryDir.strip() + '\\conf\\passwd'
 		file = open(authzFilePath, 'r')
-		
+
 		names = []
 		passwds = []
-		
+
 		while 1:
 			line = file.readline()
 			if not line:
 				break		 
-			   
+
 			if(line[0] != '#' and line[0] != '\n'):
 				str = line.split('=')
 				if(len(str) == 2):
@@ -132,24 +148,24 @@ class MushroomScmSvn:
 				file = open(authzFilePath, 'w')
 				file.write('[users]\n')
 				for i in names:
-					
+
 					file.write(i + ' = ' + passwds[names.index(i)] + '\n')				
-							  
+
 				return True 
 		return False
-		
+
 	def SetUserPasswd(self, nName, nPasswd):
 		authzFilePath = self.RepositoryDir.strip() + '\\conf\\passwd'
 		file = open(authzFilePath, 'r')
-		
+
 		names = []
 		passwds = []
-		
+
 		while 1:
 			line = file.readline()
 			if not line:
 				break		 
-			   
+
 			if(line[0] != '#' and line[0] != '\n'):
 				str = line.split('=')
 				if(len(str) == 2):
@@ -158,44 +174,46 @@ class MushroomScmSvn:
 					names.append(name)
 					passwds.append(passwd)
 		file.close()
-				
+
 		for n in names:
 			if( n == nName):
-				
+
 				idx = names.index(nName)
 				names.pop(idx)
 				passwds.pop(idx)				
-				
+
 				names.append(nName)
 				passwds.append(nPasswd)
-				
+
 				file = open(authzFilePath, 'w')
 				file.write('[users]\n')
-				
+
 				for i in names:					
 					file.write(i + ' = ' + passwds[names.index(i)] + '\n') 
 				return True 
 		return False
-	
+
+	SvnAddress = 'svn://127.0.0.1'
+
 	def LoadRootRevision(self):
 		os.system('svn log -v '+ self.SvnAddress + ' --xml > __log.xml')
 		file = open('__log.xml','r')
 		text = file.read()
 		xmlraw = minidom.parseString(text)
-		
+
 		RevisionList = xmlraw.getElementsByTagName('logentry')
-		
+
 		logSize = len(RevisionList)
-		
+
 		for index in range(logSize):
 			rev = RevisionList[index].getAttribute('revision')						
-			 
+
 			ath = RevisionList[index].getElementsByTagName('author')
 			s_ath = ath[0].firstChild.data	  
-			
+
 			date = RevisionList[index].getElementsByTagName('date')			
 			s_date = date[0].firstChild.data
-			
+
 			PathLists = []
 			path = RevisionList[index].getElementsByTagName('path')						
 			NumberOfpath = len(path)
@@ -209,91 +227,163 @@ class MushroomScmSvn:
 			msg = RevisionList[index].getElementsByTagName('msg')	 
 			if(msg[0].firstChild != None):
 				msg_data = msg[0].firstChild.data
-			
-			
-			svnLogList.append(SvnRevisionHistory(rev,s_ath,s_date, PathLists, msg_data))
- 
+
+
+			self.svnLogList.append(SvnRevisionHistory(rev,s_ath,s_date, PathLists, msg_data))
+
 		file.close();
 		os.system('del __log.xml')
-	
-	
+
+
 	def SVNGetFileListRoot(self, list):
-				
-		os.system('svn list ' + self.SvnAddress+ '> __file_list.txt')
-		
-		file=open('__file_list.txt', 'r')
-		
-		
-		while 1:
-			line = file.readline()
-			if not line:
-				break
-			line = line.strip()			
-			pathSize = len(line)
-			if line[pathSize-1] == '/':
-				fd = 'D'
-			else:
-				fd = 'F'				
-			
-			list.append(FileAndFolerList(fd, line))
-				
+
+		os.system('svn list ' + self.SvnAddress+ ' --xml > __file_list.xml' )
+
+		file=open('__file_list.xml', 'r')
+
+		text = file.read()
+		xmlraw = minidom.parseString(text)
+
+		FileList = xmlraw.getElementsByTagName('entry')
+
+		listSize = len(FileList)
+
+		for entry in range(listSize):
+
+
+			s_kind = FileList[entry].getAttribute('kind')
+
+
+			name = FileList[entry].getElementsByTagName('name')
+			s_name = name[0].firstChild.data
+
+			commit = FileList[entry].getElementsByTagName('commit')
+
+			s_rev = commit[0].getAttribute('revision')
+
+			ath = commit[0].getElementsByTagName('author')
+			s_ath = ath[0].firstChild.data	  
+
+			date = commit[0].getElementsByTagName('date')			
+			s_date = date[0].firstChild.data
+
+			list.append(FileAndFolerList(s_kind, s_name, s_date, s_rev, s_ath))
 		file.close()
-		os.system('del __file_list.txt')
-		
+		os.system('del __file_list.xml')
+
 
 	def SVNGetFileListFolder(self, list, path):
-		os.system('svn list ' + self.SvnAddress+ '/'+path +' > __file_list.txt')
-	
-		file=open('__file_list.txt', 'r')
-		
-		
-		while 1:
-			line = file.readline()
-			if not line:
-				break
-			line = line.strip()			
-			pathSize = len(line)
-			if line[pathSize-1] == '/':
-				fd = 'D'
-			else:
-				fd = 'F'				
-			
-			list.append(FileAndFolerList(fd, path+line))
-				
+		os.system('svn list ' + self.SvnAddress+ '/'+path +' --xml > __file_list.xml')
+
+		file=open('__file_list.xml', 'r')
+
+		text = file.read()
+		xmlraw = minidom.parseString(text)
+
+		FileList = xmlraw.getElementsByTagName('entry')
+
+		listSize = len(FileList)
+
+		for entry in range(listSize):
+
+
+			s_kind = FileList[entry].getAttribute('kind')
+
+
+			name = FileList[entry].getElementsByTagName('name')
+			s_name = name[0].firstChild.data
+
+			commit = FileList[entry].getElementsByTagName('commit')
+
+			s_rev = commit[0].getAttribute('revision')
+
+			ath = commit[0].getElementsByTagName('author')
+			s_ath = ath[0].firstChild.data	  
+
+			date = commit[0].getElementsByTagName('date')			
+			s_date = date[0].firstChild.data
+
+			list.append(FileAndFolerList(s_kind, path+'/'+s_name, s_date, s_rev, s_ath))
 		file.close()
-		os.system('del __file_list.txt')
+		os.system('del __file_list.xml')
 
 
-	  
+	def GetCommitMsgByRev(self, rev):
+		for log in self.svnLogList:
+			if log.Revision == rev :
+				return log.Message
+		return ""
+
+	def GetFileContext(self, path):
+		os.system('svn export ' + self.SvnAddress+ '/'+path +'  __tmp.txt > __log')
+
+		file = open('__tmp.txt', 'r')
+		text = file.read()
+		file.close()
+		os.system('del __tmp.txt')
+		os.system('del __log')
+
+		return text
+
+	def GetFileContextByRev(self, path, rev):
+		os.system('svn export ' +  self.SvnAddress+ '/'+path  +' -r '+ str(rev) +'  __tmp.txt > __log')
+
+		file = open('__tmp.txt', 'r')		
+		text = file.read()
+		file.close()
+		os.system('del __tmp.txt')
+		os.system('del __log')
+
+		return text
+
 	def SVNGetFileListFolderAndRev(self, list, path, rev):
-		#CommnadString = 'svn list ' + self.SvnAddress+ '/'+path +' -r '+ rev. +' > __file_list.txt'
-		os.system('svn list ' + self.SvnAddress+ '/'+path +' -r '+ str(rev) +' > __file_list.txt')
-		
-	
-		file=open('__file_list.txt', 'r')
-		
-		
-		while 1:
-			line = file.readline()
-			if not line:
-				break
-			line = line.strip()			
-			pathSize = len(line)
-			if line[pathSize-1] == '/':
-				fd = 'D'
+
+		os.system('svn list ' + self.SvnAddress+ '/'+path +' -r '+ str(rev) +' --xml > __file_list.xml')
+
+
+		file=open('__file_list.xml', 'r')
+
+		text = file.read()
+		xmlraw = minidom.parseString(text)
+
+		FileList = xmlraw.getElementsByTagName('entry')
+
+		listSize = len(FileList)
+
+		for entry in range(listSize):
+
+
+			s_kind = FileList[entry].getAttribute('kind')
+
+
+			name = FileList[entry].getElementsByTagName('name')
+			s_name = name[0].firstChild.data
+
+			commit = FileList[entry].getElementsByTagName('commit')
+
+			s_rev = commit[0].getAttribute('revision')
+
+			ath = commit[0].getElementsByTagName('author')
+			if ath:
+				s_ath = ath[0].firstChild.data
 			else:
-				fd = 'F'				
-			
-			list.append(FileAndFolerList(fd, path+line))
-				
+				s_ath = '?'
+
+			date = commit[0].getElementsByTagName('date')			
+			s_date = date[0].firstChild.data
+
+			list.append(FileAndFolerList(s_kind, s_name, s_date, s_rev, s_ath))
 		file.close()
-		os.system('del __file_list.txt')
-	  
+		os.system('del __file_list.xml')
+  
 
 class FileAndFolerList:
-	def __init__(self, fd, path):
+	def __init__(self, fd, path, date, rev, ath):
 		self.fd = fd
 		self.path = path
+		self.date = date
+		self.rev  = rev
+		self.author = ath
 
 class Paths:
 	def __init__(self, kind, action, path):

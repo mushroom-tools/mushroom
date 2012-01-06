@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ 'Issue Tracker' }}{% endblock %}
+{% block head %}{{ 'Issues' }}{% endblock %}
+{% block description %}{{ 'Mushroom Issue Tracker' }}{% endblock %}
+
+{% block content %}
+
+	<form method="post" action="."> {% csrf_token %}
+		{{ form.as_p }}
+	<div style="float:right;"><button class="btn large primary" type="submit" value="create" />Create<button></div>
+	</form>
+{% endblock %}

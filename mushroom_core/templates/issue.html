@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ 'Issue Tracker' }}{% endblock %}
+{% block head %}{{ 'Issues' }}{% endblock %}
+{% block description %}{{ 'Mushroom Issue Tracker' }}{% endblock %}
+
+{% block content %}
+<h3>{{ username }} opened this issue {{ issue.date }}</h3>
+
+<table class="zebra-striped">
+	<tbody>
+			<tr>
+				<td width="10%">
+					{% if issue.status == 1 %}
+					<span class="label notice">opened</span>
+					{% else %}
+					<span class="label important">closed</span>
+					{% endif %}
+				</td>
+				<td width="90%">
+					{{ issue.name }}
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2>{{ issue.description }}</td>
+			</tr>
+	</tbody>
+</table>
+<div style="float:right;">
+
+<b>
+{% for assign in assigns %}
+{{ assign.user }} {{ ', ' }}
+{% endfor %}
+</b>
+are participating in this issue
+{% if issue.status == 1 %}
+<a href={{'/issue_close/'}}{{ issue.id }}><button class="btn default">Close This Issue</button></a>
+{% else %}
+<a href={{'/issue_reopen/'}}{{ issue.id }}><button class="btn default">Reopen This Issue</button></a>
+{% endif %}
+<a href={{'/issue_edit/'}}{{ issue.id }}><button class="btn info">Edit</button></a>
+<a href={{'/issue_delete/'}}{{ issue.id }}><button class="btn danger">Delete</button></a>
+</div>
+{% endblock %}

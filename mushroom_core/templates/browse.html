@@ -11,7 +11,9 @@
 <table class="bordered-table zebra-striped">
 	<thead>
 		<th>Name</th>
+		<th>Author</th>
 		<th>Age</th>
+		<th>Rev</th>
 		<th>Message</th>
 	</thead>
 	<tbody>
@@ -21,14 +23,16 @@
 				<img src="/static/images/parent.png" />
 				<a href="/browse{{parent_path}}">..</a>
 			</td>
-			<td></th>
+			<td></td>
+			<td></td>
+			<td></td>
 			<td></td>
 		</tr>
 		{% endif %}
 		{% for file in filelist %}
 		<tr>
 			<td>
-				{% if file.fd == 'F' %}
+				{% if file.fd == 'file' %}
 					<img src="/static/images/file.png" />
 					<a href="#">{{ file.name }}</a>
 				{% else %}
@@ -36,8 +40,10 @@
 					<a href="/browse/{{file.path}}">{{ file.name }}</a>
 				{% endif %}
 			</td>
-			<td>about 15 hours ago</th>
-			<td>gitignore added. mushroom_core commit by Jweb</td>
+			<td>{{ file.author }}</td>
+			<td>{{ file.date }}</td>
+			<td>{{ file.rev }}</td>
+			<td>{{ file.message }}</td>
 		</tr>
 		{% endfor %}
 	</tbody>
