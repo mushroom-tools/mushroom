@@ -8,6 +8,11 @@ TEMPLATE_DEBUG = DEBUG
 SKYPE_USERNAME = 'mushroom_conf'
 SKYPE_PASSWORD = 'mushroom0'
 
+SVN_BIN_DIR = 'C:\\svn_bin\\bin'
+SVN_REPO = 'C:\\svn_test'
+SVN_PORT = 3690
+SVN_ADDRESS = 'svn://127.0.0.1'
+
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )

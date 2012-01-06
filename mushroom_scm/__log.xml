@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<log>
+<logentry
+   revision="3">
+<date>2012-01-05T23:32:05.293188Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/test/FILE</path>
+</paths>
+<msg></msg>
+</logentry>
+<logentry
+   revision="2">
+<date>2012-01-05T23:31:11.875480Z</date>
+<paths>
+<path
+   kind="dir"
+   action="A">/test</path>
+</paths>
+<msg>folder added</msg>
+</logentry>
+<logentry
+   revision="1">
+<date>2012-01-05T23:29:17.402735Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/README</path>
+</paths>
+<msg>test</msg>
+</logentry>
+</log>

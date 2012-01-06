@@ -14,7 +14,7 @@ urlpatterns = patterns('',
 	url(r'^join_member/$', 'join_member.views.join_member_page'),
 	url(r'^dashboard/$', 'dashboard.views.dashboard_page'),
 	url(r'^timeline/$', 'timeline.views.timeline_page'),
-	url(r'^browse/$', 'browse.views.browse_page'),
+	url(r'^browse/(.+)?$', 'browse.views.browse_page'),
 	url(r'^confcall/$', 'dashboard.views.confcall'),
     # Examples:
     # url(r'^$', 'mushroom_core.views.home', name='home'),

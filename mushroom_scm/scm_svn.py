@@ -416,7 +416,7 @@ filelist = []
 
 #svn.SVNGetFileList(filelist)
 #svn.SVNGetFileListFolder(filelist, 'Folder1/')
-svn.SVNGetFileListFolderAndRev(filelist, "", 7)
+svn.SVNGetFileListFolderAndRev(filelist, "test/", "HEAD")
 
 
 def PrintSVNFileList(list):
@@ -445,10 +445,6 @@ def PrintSVNAllFileList(list):
 
         
 PrintSVNAllFileList(filelist)
-
-
-
-
 
 
 
