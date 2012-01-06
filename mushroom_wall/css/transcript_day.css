@@ -1,0 +1,13 @@
+
+body{
+	background-color: lightgray;
+}
+
+.content{
+	width:100%;
+	height:100%;
+}
+
+#chat-wrapper, h1{
+	margin-left: 100px;
+}

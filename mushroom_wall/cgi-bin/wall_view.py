@@ -36,7 +36,7 @@ def topbar():
                     <ul class="nav">
                         <li><a href="/index.html">Home</a></li>
                         <li class="active"><a href="wall.py">Wall</a></li>
-                        <li><a href="transcripts.py">Files, Transcripts & Search</a></li>
+                        <li><a href="transcripts.py">Transcripts</a></li>
                     </ul>
                 </div>
             </div>
@@ -125,18 +125,18 @@ def start_content():
 
 
 def start_chat_table():
-    return('<table class="chat">')
+    return('<table id="chat_table" class="chat">')
 
 
 
 
 def message(author, content, datetime, is_text = True, link = None):
-    global pre_author
+    #global pre_author
     
     string = '''<tr class="text_message message">
                     <td class="message_person">
                         <span class="author">'''
-    
+    '''
     try:
         pre_author
     except NameError:
@@ -145,7 +145,9 @@ def message(author, content, datetime, is_text = True, link = None):
         if( pre_author != author ):
             string += author
         
-    pre_author = author
+    pre_author = author'''
+    
+    string += author
     
     string += '''</span>
                     </td>
@@ -173,7 +175,7 @@ def end_chat_table():
 
 def dropbox_auth_warning():
     string = '''<!-- warning -->
-                <div class="alert-message danger">
+                <div class="alert-message danger" data-alert="alert">
                     <a class="close" href="#">×</a>
                     <p><strong>알림!</strong>&nbsp;&nbsp;&nbsp;파일 업로드를 위한 Dropbox 인증이 필요합니다. 우측 상단의 폼에서 인증하시기 바랍니다.</p>
                 </div>'''
@@ -187,10 +189,10 @@ def speak_form():
                 <div class="speak">
                     
                     <div>
-                        <form id="chat_form" action="javascript: submitMessage()">
+                        <form id="chat_form" action="javascript: submitMessage()" >
                             <table><tr>
-                                <td class="speak_person_td"><input type="text" id="speak_person" placeholder="name"></td>
-                                <td class="speak_body_td"><textarea id="speak_body" placeholder="text here" onkeypress="if(window.event.keyCode==13){submitMessage();}"></textarea></td>
+                                <td class="speak_person_td"><input type="text" name="name" id="speak_person" placeholder="name"></td>
+                                <td class="speak_body_td"><input type="text" name="content" id="speak_body" placeholder="text here"></td>
                                 <td class="speak_send_td"><input type="submit" id="speak_send" class="btn" value="Send Message" disabled></td>
                             </tr></table>
                         </form>

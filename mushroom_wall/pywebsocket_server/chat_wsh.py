@@ -1,26 +1,29 @@
+
+
 from mod_pywebsocket import msgutil
 connections = []
 
 def web_socket_do_extra_handshake(request):
-    # ¸ğµç Á¢¼ÓÀ» ¹Ş¾ÆµéÀÓ
+    # ëª¨ë“  ì ‘ì†ì„ ë°›ì•„ë“¤ì„
     pass
 
 def web_socket_transfer_data(request):
-    # ¸ğµç Å¬¶óÀÌ¾ğÆ®ÀÇ Á¢¼ÓÀ» ÀúÀåÇØ µÒ
+    # ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ì˜ ì ‘ì†ì„ ì €ì¥í•´ ë‘ 
     connections.append(request)
     while True:
         try:
-            # Å¬¶óÀÌ¾ğÆ®·ÎºÎÅÍ ¸Ş½ÃÁö¸¦ ¼ö½ÅÇÒ ¶§±îÁö ±â´Ù¸²
+            # í´ë¼ì´ì–¸íŠ¸ë¡œë¶€í„° ë©”ì‹œì§€ë¥¼ ìˆ˜ì‹ í•  ë•Œê¹Œì§€ ê¸°ë‹¤ë¦¼
             message = msgutil.receive_message(request)
         except Exception:
-            # Á¢¼ÓÀÌ ²÷¾îÁ³À¸¹Ç·Î Ã³¸® Á¾·á
+            # ì ‘ì†ì´ ëŠì–´ì¡Œìœ¼ë¯€ë¡œ ì²˜ë¦¬ ì¢…ë£Œ
             return
-        # ¸ğµç Å¬¶óÀÌ¾ğÆ®·Î ¸Ş½ÃÁö¸¦ º¸³¿
+        # ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ë¡œ ë©”ì‹œì§€ë¥¼ ë³´ëƒ„
         for con in connections:
             try:
-                # ¸Ş½ÃÁö¸¦ º¸³¿
+                # ë©”ì‹œì§€ë¥¼ ë³´ëƒ„
+                #json = "{'name':'basket', 'content':'hello', 'datetime': '03:40 AM', 'is_text' : 1}"
                 msgutil.send_message(con, message)
             except Exception:
-                # ¸Ş½ÃÁö¸¦ º¸³¾ ¼ö ¾ø´Â Å¬¶óÀÌ¾ğÆ®´Â Á¦¿Ü
+                # ë©”ì‹œì§€ë¥¼ ë³´ë‚¼ ìˆ˜ ì—†ëŠ” í´ë¼ì´ì–¸íŠ¸ëŠ” ì œì™¸
                 connections.remove(con)
                 

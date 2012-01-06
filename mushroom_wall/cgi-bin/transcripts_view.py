@@ -35,7 +35,7 @@ def topbar():
                     <ul class="nav">
                         <li><a href="/index.html">Home</a></li>
                         <li><a href="wall.py">Wall</a></li>
-                        <li class="active"><a href="transcripts.py">Files, Transcripts & Search</a></li>
+                        <li class="active"><a href="transcripts.py">Transcripts</a></li>
                     </ul>
                 </div>
             </div>
@@ -48,7 +48,7 @@ def topbar():
 def start_container():
     string = '''<div class="container">
                     <!-- title -->
-                    <h1>Files, Transcripts & Search</h1>'''
+                    <h1>Transcripts</h1>'''
     return(string)
 
 
@@ -73,10 +73,41 @@ def start_transcripts():
 
 
 def transcript_day(date, link = "#"):
+    
+    date_split = date.split('-')
+
+    if(date_split[1] == '01'):
+        date_str = 'January'
+    elif(date_split[1] == '02'):
+        date_str = 'Februry'
+    elif(date_split[1] == '03'):
+        date_str = 'March'
+    elif(date_split[1] == '04'):
+        date_str = 'April'
+    elif(date_split[1] == '05'):
+        date_str = 'May'
+    elif(date_split[1] == '06'):
+        date_str = 'June'
+    elif(date_split[1] == '07'):
+        date_str = 'July'
+    elif(date_split[1] == '08'):
+        date_str = 'August'
+    elif(date_split[1] == '09'):
+        date_str = 'October'
+    elif(date_split[1] == '10'):
+        date_str = 'September'
+    elif(date_split[1] == '11'):
+        date_str = 'November'
+    else:
+        date_str = 'December'
+    
+    date_str += ' ' + date_split[2] + ', ' + date_split[0]
+    
+    
     string = '''<div>
                     <div class="page-header">
-                        <h3>''' + date + '''
-                            <small>- <a href="''' + link + '''">Read the transcript</a></small>
+                        <h3>''' + date_str + '''
+                            <small>- <a href="''' + link + '''" target="_blank">Read the transcript</a></small>
                         </h3>
                     </div>
                 </div>'''

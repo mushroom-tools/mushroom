@@ -4,7 +4,8 @@ var ws = new WebSocket(server_addr);
 						
 						
 ws.onmessage = function(event){	// 메시지 수신
-	alert(event.data);
+	//alert(event.data);
+	addMessage(event.data);
 };
 
 
@@ -23,8 +24,18 @@ ws.onclose = function(event){	// 서버와 통신 끊김
 function submitMessage(){
 	var name = $('#speak_person').val();
 	var message = $('#speak_body').val();
+		
+	// 채팅 서버로 메시지 보냄
+	str = "{'name': '" + name + "', 'content': '" + message + "', 'datetime': '03:40 AM', 'is_text': 1}";
+	ws.send(str);
 	
-	// 서버로 메시지 보냄
-	//ws.send({'name': name, 'content': message});
-	ws.send(name + "###" + message);
+	
+	// db에 저장
+	$.ajax({
+	  url: 'put_msg_to_db.py',
+	  data: {'name': name, 'content': message},
+	  //success: function(){ }
+	});
+			
+	$('#speak_body').val('');
 }
