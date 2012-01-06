@@ -334,7 +334,12 @@ class MushroomScmSvn:
         file.close()
         os.system('del __file_list.xml')
         
-
+    
+    def GetCommitMsgByRev(self, rev):        
+        for log in svnLogList:
+            if log.Revision == rev :
+                return log.Message
+        return ""
 
     def SVNGetFileListFolderAndRev(self, list, path, rev):
         
@@ -431,12 +436,7 @@ else :
 #svn.ShowAllUsers()
 #svn.SetUserPasswd('leehana','hana2');
 
-
-
 """
-svn.LoadRootRevision()
-
-
 def PrintSVNLog():
     for log in svnLogList:
         print 'Revision :'+log.Revision
@@ -454,11 +454,14 @@ def PrintSVNLog():
 
 PrintSVNLog()
 """
+svn.LoadRootRevision()
 
 filelist = []
 #svn.SVNGetFileListRoot(filelist)
 #svn.SVNGetFileListFolder(filelist, 'Folder1/')
 #svn.SVNGetFileListFolderAndRev(filelist, "", 7)
+
+
 
 def PrintSVNFileList(list):
     for name in list:
@@ -467,11 +470,15 @@ def PrintSVNFileList(list):
             print 'author :' + name.author
             print 'revision :' + name.rev
             print 'date :' + name.date
+            msg = svn.GetCommitMsgByRev(name.rev)
+            print 'message : ' + svn.GetCommitMsgByRev(name.rev)
         else :
             print 'FOLDER :' + name.path
             print 'author :' + name.author
             print 'revision :' + name.rev
             print 'date :' + name.date
+            msg = svn.GetCommitMsgByRev(name.rev)
+            print 'message : ' + svn.GetCommitMsgByRev(name.rev)
             
 
 
@@ -481,17 +488,12 @@ def PrintSVNFileList(list):
 
 
 
-
-#PrintSVNFileList(filelist)
-
-
-
-
-
 #flist = []
 #svn.SVNGetFileListRoot(flist)
 
 svn.SVNGetFileListRoot(filelist)
+PrintSVNFileList(filelist)
+
 
 def PrintSVNAllFileList(list):
     
@@ -505,7 +507,7 @@ def PrintSVNAllFileList(list):
             PrintSVNAllFileList(sublist)
 
         
-PrintSVNAllFileList(filelist)
+#PrintSVNAllFileList(filelist)
 
 
 
