@@ -1,0 +1,66 @@
+id: 1-18.0.r20/0
+type: file
+pred: 1-18.0.r19/36
+count: 2
+text: 18 347 4 0 d41d8cd98f00b204e9800998ecf8427e da39a3ee5e6b4b0d3255bfef95601890afd80709 19-j/_2
+cpath: /skype_api_service/__init__.py
+copyroot: 0 /
+
+PLAIN
+K 11
+__init__.py
+V 17
+file 1-18.0.r20/0
+K 9
+manage.py
+V 20
+file 3-18.0.r18/2396
+K 11
+settings.py
+V 20
+file 4-18.0.r18/2780
+END
+ENDREP
+id: 0-4.0.r20/349
+type: dir
+pred: 0-4.0.r19/388
+count: 3
+text: 20 209 127 127 8f63620c6453099cc1ba7abdcdbcee0a
+cpath: /skype_api_service
+copyroot: 0 /
+
+PLAIN
+K 10
+README.txt
+V 18
+file 0-1.0.r15/114
+K 13
+mushroom_core
+V 15
+dir 2-1.0.r1/51
+K 12
+mushroom_scm
+V 17
+dir 3-1.0.r14/432
+K 13
+mushroom_wall
+V 17
+dir 0-3.0.r17/770
+K 17
+skype_api_service
+V 17
+dir 0-4.0.r20/349
+END
+ENDREP
+id: 0.0.r20/727
+type: dir
+pred: 0.0.r19/767
+count: 20
+text: 20 501 213 213 533551898ec7e1ae96ae5e3ae8eb7902
+cpath: /
+copyroot: 0 /
+
+1-18.0.t19-j modify-file true false /skype_api_service/__init__.py
+
+
+727 859

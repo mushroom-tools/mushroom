@@ -1,0 +1,101 @@
+PLAIN
+K 11
+__init__.py
+V 19
+file 3-26.0.r26/193
+K 9
+models.py
+V 19
+file 5-26.0.r26/589
+K 8
+tests.py
+V 19
+file 6-26.0.r26/391
+K 8
+views.py
+V 19
+file 7-26.0.r28/256
+END
+ENDREP
+id: 1-26.0.r29/174
+type: dir
+pred: 1-26.0.r28/687
+count: 3
+text: 29 0 161 161 e2b15039db4e3ecaa44b55f005a208aa
+cpath: /skype_api_service/regist
+copyroot: 0 /
+
+PLAIN
+K 11
+__init__.py
+V 17
+file 1-18.0.r20/0
+K 4
+call
+V 19
+dir 3-24.0.r24/1719
+K 9
+manage.py
+V 20
+file 3-18.0.r18/2396
+K 6
+regist
+V 18
+dir 1-26.0.r29/174
+K 11
+settings.py
+V 20
+file 4-18.0.r18/2780
+K 10
+skypeapidb
+V 18
+file 1-23.0.r23/66
+K 7
+urls.py
+V 19
+file 3-23.0.r23/311
+END
+ENDREP
+id: 0-4.0.r29/619
+type: dir
+pred: 0-4.0.r28/1134
+count: 10
+text: 29 333 273 273 11c6bc45294e43b2d4ad8ca61233526b
+cpath: /skype_api_service
+copyroot: 0 /
+
+PLAIN
+K 10
+README.txt
+V 18
+file 0-1.0.r15/114
+K 13
+mushroom_core
+V 15
+dir 2-1.0.r1/51
+K 12
+mushroom_scm
+V 17
+dir 3-1.0.r14/432
+K 13
+mushroom_wall
+V 17
+dir 0-3.0.r17/770
+K 17
+skype_api_service
+V 17
+dir 0-4.0.r29/619
+END
+ENDREP
+id: 0.0.r29/999
+type: dir
+pred: 0.0.r28/1514
+count: 29
+text: 29 773 213 213 15ca8141291c4ba12f463af24c1d9f14
+cpath: /
+copyroot: 0 /
+
+2-28.0.r28/58 delete-file false false /skype_api_service/regist/views.py.bak
+
+
+999 1132

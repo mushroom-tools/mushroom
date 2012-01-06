@@ -1,0 +1,70 @@
+PLAIN
+K 11
+__init__.py
+V 17
+file 1-18.0.r20/0
+K 4
+call
+V 19
+dir 3-24.0.r24/1719
+K 9
+manage.py
+V 20
+file 3-18.0.r18/2396
+K 11
+settings.py
+V 20
+file 4-18.0.r18/2780
+K 10
+skypeapidb
+V 18
+file 1-23.0.r23/66
+K 7
+urls.py
+V 19
+file 3-23.0.r23/311
+END
+ENDREP
+id: 0-4.0.r25/251
+type: dir
+pred: 0-4.0.r24/2156
+count: 6
+text: 25 0 238 238 82157d673354badf8aedba4348196c76
+cpath: /skype_api_service
+copyroot: 0 /
+
+PLAIN
+K 10
+README.txt
+V 18
+file 0-1.0.r15/114
+K 13
+mushroom_core
+V 15
+dir 2-1.0.r1/51
+K 12
+mushroom_scm
+V 17
+dir 3-1.0.r14/432
+K 13
+mushroom_wall
+V 17
+dir 0-3.0.r17/770
+K 17
+skype_api_service
+V 17
+dir 0-4.0.r25/251
+END
+ENDREP
+id: 0.0.r25/628
+type: dir
+pred: 0.0.r24/2537
+count: 25
+text: 25 402 213 213 5ce3d8df940480993a80f93b1327a1fd
+cpath: /
+copyroot: 0 /
+
+1-24.0.r24/566 delete-file false false /skype_api_service/__init__.py.bak
+
+
+628 761

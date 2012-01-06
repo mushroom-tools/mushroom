@@ -1,0 +1,41 @@
+id: 0-4.0.r4/0
+type: dir
+count: 0
+cpath: /skype_api_service
+copyroot: 0 /
+
+PLAIN
+K 10
+README.txt
+V 16
+file 0-1.0.r2/95
+K 13
+mushroom_core
+V 15
+dir 2-1.0.r1/51
+K 12
+mushroom_scm
+V 16
+dir 3-1.0.r1/291
+K 13
+mushroom_wall
+V 14
+dir 0-3.0.r3/0
+K 17
+skype_api_service
+V 14
+dir 0-4.0.r4/0
+END
+ENDREP
+id: 0.0.r4/292
+type: dir
+pred: 0.0.r3/245
+count: 4
+text: 4 75 204 204 50afa18f5cd1739683bcbfa081d72b50
+cpath: /
+copyroot: 0 /
+
+_0.0.t3-3 add-dir false false /skype_api_service
+
+
+292 419
