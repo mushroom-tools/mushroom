@@ -340,6 +340,28 @@ class MushroomScmSvn:
             if log.Revision == rev :
                 return log.Message
         return ""
+    
+    def GetFileContext(self, path):
+        os.system('svn export ' + self.SvnAddress+ '/'+path +'  __tmp.txt > __log')
+            
+        file = open('__tmp.txt', 'r')
+        text = file.read()
+        file.close()
+        os.system('del __tmp.txt')
+        os.system('del __log')
+        
+        return text
+        
+    def GetFileContextByRev(self, path, rev):
+        os.system('svn export ' +  self.SvnAddress+ '/'+path  +' -r '+ str(rev) +'  __tmp.txt > __log')
+        
+        file = open('__tmp.txt', 'r')        
+        text = file.read()
+        file.close()
+        os.system('del __tmp.txt')
+        os.system('del __log')
+        
+        return text
 
     def SVNGetFileListFolderAndRev(self, list, path, rev):
         
@@ -492,7 +514,7 @@ def PrintSVNFileList(list):
 #svn.SVNGetFileListRoot(flist)
 
 svn.SVNGetFileListRoot(filelist)
-PrintSVNFileList(filelist)
+#PrintSVNFileList(filelist)
 
 
 def PrintSVNAllFileList(list):
@@ -509,6 +531,9 @@ def PrintSVNAllFileList(list):
         
 #PrintSVNAllFileList(filelist)
 
+#test1 = svn.GetFileContext('test.txt')
+#test1 = svn.GetFileContextByRev('test.txt', 10)
+#test1 = svn.GetFileContextByRev('Folder1/inFolder1_test1.txt', 10)
 
 
 
