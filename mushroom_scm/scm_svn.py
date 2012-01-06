@@ -1,7 +1,6 @@
 import os
 import sys
 import ctypes
-import pysvn
 import threading
 import datetime
 from xml.dom import minidom
@@ -88,8 +87,9 @@ class MushroomScmSvn:
         binPath=self.SvnBinaryDir.strip() + '\\svnserve.exe"'
         binPath='""'+binPath    
         CommandString = 'sc create svn_server binpath= ' + binPath + ' --service -r "' + self.RepositoryDir.strip() + ' start= auto'
-        os.system(CommandString)
-        os.system('sc start svn_server');
+        print CommandString
+        #os.system(CommandString)
+        #os.system('sc start svn_server');
 
         
     def StopServerDeamon(self): 
@@ -264,81 +264,129 @@ class MushroomScmSvn:
     
     def SVNGetFileListRoot(self, list):
                 
-        os.system('svn list ' + self.SvnAddress+ '> __file_list.txt')
+        os.system('svn list ' + self.SvnAddress+ ' --xml > __file_list.xml' )
         
-        file=open('__file_list.txt', 'r')
+        file=open('__file_list.xml', 'r')
         
+        text = file.read()
+        xmlraw = minidom.parseString(text)
         
-        while 1:
-            line = file.readline()
-            if not line:
-                break
-            line = line.strip()            
-            pathSize = len(line)
-            if line[pathSize-1] == '/':
-                fd = 'D'
-            else:
-                fd = 'F'                
+        FileList = xmlraw.getElementsByTagName('entry')
+        
+        listSize = len(FileList)
+        
+        for entry in range(listSize):
+                        
             
-            list.append(FileAndFolerList(fd, line))
-                
+            s_kind = FileList[entry].getAttribute('kind')
+            
+            
+            name = FileList[entry].getElementsByTagName('name')
+            s_name = name[0].firstChild.data
+             
+            commit = FileList[entry].getElementsByTagName('commit')
+            
+            s_rev = commit[0].getAttribute('revision')
+                        
+            ath = commit[0].getElementsByTagName('author')
+            s_ath = ath[0].firstChild.data      
+            
+            date = commit[0].getElementsByTagName('date')            
+            s_date = date[0].firstChild.data
+            
+            list.append(FileAndFolerList(s_kind, s_name, s_date, s_rev, s_ath))
         file.close()
-        os.system('del __file_list.txt')
-        
+        os.system('del __file_list.xml')
+
 
     def SVNGetFileListFolder(self, list, path):
-        os.system('svn list ' + self.SvnAddress+ '/'+path +' > __file_list.txt')
+        os.system('svn list ' + self.SvnAddress+ '/'+path +' --xml > __file_list.xml')
     
-        file=open('__file_list.txt', 'r')
+        file=open('__file_list.xml', 'r')
         
+        text = file.read()
+        xmlraw = minidom.parseString(text)
         
-        while 1:
-            line = file.readline()
-            if not line:
-                break
-            line = line.strip()            
-            pathSize = len(line)
-            if line[pathSize-1] == '/':
-                fd = 'D'
-            else:
-                fd = 'F'                
+        FileList = xmlraw.getElementsByTagName('entry')
+        
+        listSize = len(FileList)
+        
+        for entry in range(listSize):
+                        
             
-            list.append(FileAndFolerList(fd, path+line))
-                
+            s_kind = FileList[entry].getAttribute('kind')
+            
+            
+            name = FileList[entry].getElementsByTagName('name')
+            s_name = name[0].firstChild.data
+             
+            commit = FileList[entry].getElementsByTagName('commit')
+            
+            s_rev = commit[0].getAttribute('revision')
+                        
+            ath = commit[0].getElementsByTagName('author')
+            s_ath = ath[0].firstChild.data      
+            
+            date = commit[0].getElementsByTagName('date')            
+            s_date = date[0].firstChild.data
+            
+            list.append(FileAndFolerList(s_kind, path+'/'+s_name, s_date, s_rev, s_ath))
         file.close()
-        os.system('del __file_list.txt')
+        os.system('del __file_list.xml')
+        
+    
+    def GetCommitMsgByRev(self, rev):        
+        for log in svnLogList:
+            if log.Revision == rev :
+                return log.Message
+        return ""
 
-
-      
     def SVNGetFileListFolderAndRev(self, list, path, rev):
-        #CommnadString = 'svn list ' + self.SvnAddress+ '/'+path +' -r '+ rev. +' > __file_list.txt'
-        os.system('svn list ' + self.SvnAddress+ '/'+path +' -r '+ str(rev) +' > __file_list.txt')
+        
+        os.system('svn list ' + self.SvnAddress+ '/'+path +' -r '+ str(rev) +' --xml > __file_list.xml')
         
     
-        file=open('__file_list.txt', 'r')
+        file=open('__file_list.xml', 'r')
         
+        text = file.read()
+        xmlraw = minidom.parseString(text)
         
-        while 1:
-            line = file.readline()
-            if not line:
-                break
-            line = line.strip()            
-            pathSize = len(line)
-            if line[pathSize-1] == '/':
-                fd = 'D'
-            else:
-                fd = 'F'                
+        FileList = xmlraw.getElementsByTagName('entry')
+        
+        listSize = len(FileList)
+        
+        for entry in range(listSize):
+                        
             
-            list.append(FileAndFolerList(fd, path+line))
-                
+            s_kind = FileList[entry].getAttribute('kind')
+            
+            
+            name = FileList[entry].getElementsByTagName('name')
+            s_name = name[0].firstChild.data
+             
+            commit = FileList[entry].getElementsByTagName('commit')
+            
+            s_rev = commit[0].getAttribute('revision')
+                        
+            ath = commit[0].getElementsByTagName('author')
+            s_ath = ath[0].firstChild.data      
+            
+            date = commit[0].getElementsByTagName('date')            
+            s_date = date[0].firstChild.data
+            
+            list.append(FileAndFolerList(s_kind, s_name, s_date, s_rev, s_ath))
         file.close()
-        os.system('del __file_list.txt')
-      
+        os.system('del __file_list.xml')
+    
 
 class FileAndFolerList:
-    def __init__(self, fd, path):
+    def __init__(self, fd, path, date, rev, ath):
         self.fd = fd
         self.path = path
+        self.date = date
+        self.rev  = rev
+        self.author = ath
+        
 
 class Paths:
     def __init__(self, kind, action, path):
@@ -388,12 +436,7 @@ else :
 #svn.ShowAllUsers()
 #svn.SetUserPasswd('leehana','hana2');
 
-
-
 """
-svn.LoadRootRevision()
-
-
 def PrintSVNLog():
     for log in svnLogList:
         print 'Revision :'+log.Revision
@@ -411,31 +454,55 @@ def PrintSVNLog():
 
 PrintSVNLog()
 """
+svn.LoadRootRevision()
 
 filelist = []
-
-#svn.SVNGetFileList(filelist)
+#svn.SVNGetFileListRoot(filelist)
 #svn.SVNGetFileListFolder(filelist, 'Folder1/')
+<<<<<<< HEAD
 svn.SVNGetFileListFolderAndRev(filelist, "test/", "HEAD")
+=======
+#svn.SVNGetFileListFolderAndRev(filelist, "", 7)
+
+>>>>>>> ffdcbe4c65b736ebaef88a1e7a9b059ec3c2fc75
 
 
 def PrintSVNFileList(list):
     for name in list:
-        if name.fd == 'F':
+        if name.fd == 'file':
             print 'FILE   :' + name.path
+            print 'author :' + name.author
+            print 'revision :' + name.rev
+            print 'date :' + name.date
+            msg = svn.GetCommitMsgByRev(name.rev)
+            print 'message : ' + svn.GetCommitMsgByRev(name.rev)
         else :
             print 'FOLDER :' + name.path
+            print 'author :' + name.author
+            print 'revision :' + name.rev
+            print 'date :' + name.date
+            msg = svn.GetCommitMsgByRev(name.rev)
+            print 'message : ' + svn.GetCommitMsgByRev(name.rev)
+            
 
 
-#PrintSVNFileList(filelist)
+#svn.SVNGetFileList(filelist)
+
+#svn.SVNGetFileListFolderAndRev(filelist, "", 7)
+
+
 
 #flist = []
 #svn.SVNGetFileListRoot(flist)
 
+svn.SVNGetFileListRoot(filelist)
+PrintSVNFileList(filelist)
+
+
 def PrintSVNAllFileList(list):
     
     for name in list:
-        if name.fd == 'F':
+        if name.fd == 'file':
             print 'FILE   :' + name.path
         else :
             print 'FOLDER :' + name.path
@@ -444,7 +511,7 @@ def PrintSVNAllFileList(list):
             PrintSVNAllFileList(sublist)
 
         
-PrintSVNAllFileList(filelist)
+#PrintSVNAllFileList(filelist)
 
 
 
