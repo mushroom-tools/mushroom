@@ -7,41 +7,29 @@
 
 {% block content %}
 
-<script src="/static/js/jquery.tablesorter.min.js"></script>
-<script >
-	$(function() {
-		$("table#timeline_table").tablesorter({
-			sortList: [[2,1]],
-			headers: {
-				2: {
-					sorter: 'text'
-				}
-			}
-		});
-	});
-</script>
-<table class="zebra-striped" id="timeline_table">
+<table class="zebra-striped bordered-table">
 	<thead>
-		<th>Type</th>
-		<th>Event</th>
-		<th width="230">DateTime</th>
+		<th>Revision</th>
+		<th>Author</th>
+		<th width="200">DateTime</th>
+		<th>Message</th>
 	</thead>
 	<tbody>
+		{% for log in svnlogs %}
 		<tr>
-			<td>SCM</td>
-			<td>Changeset <a href="#">r128</a> by Jweb &lt;jweb@jweb.kr&gt;</th>
-			<td class="datetime">4 days ago. 2011-01-06 22:11:23</td>
+			<td>r{{ log.Revision }}</td>
+			<td>by {{ log.Author }}</td>
+			<td>{{ log.Date }}</td>
+			<td>{{ log.Message }}</td>
 		</tr>
-		<tr>
-			<td>Issue</td>
-			<td>Issue <a href="#">#12</a> status changed closed by Jweb</th>
-			<td class="datetime">6 days ago. 2011-01-06 23:11:23</td>
-		</tr>
-		<tr>
-			<td>SCM</td>
-			<td>Changeset <a href="#">r28</a> by Jweb &lt;jweb@jweb.kr&gt;</th>
-			<td class="datetime">2011-01-04 23:11:23</td>
-		</tr>
+			{% for path in log.Paths %}
+			<tr>
+				<td></td>
+				<td></td>
+				<td colspan="2">{{ path.action }} {{ path.kind }}. {{ path.path }}</td>
+			</tr>
+			{% endfor %}
+		{% endfor %}
 	</tbody>
 </table>
 

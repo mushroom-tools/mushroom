@@ -5,7 +5,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
-from dashboard.models import Project
+from issues.models import Project
 
 from utils.skype.SkypeApi import SkypeApi
 
