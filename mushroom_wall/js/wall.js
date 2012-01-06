@@ -2,7 +2,7 @@
 function addMessage(msg_data)
 {
 	var json = eval("("+msg_data+")");
-	
+	var link = "#";
 	
 	
 	var str = '<tr class="text_message message">' + 
@@ -12,11 +12,11 @@ function addMessage(msg_data)
 		    		'<td class="message_body">' + 
 		    			'<div class="message_body_content">';
 		    			
-	if( json.is_text ){
+	//if( json.is_text ){
 		str += json.content;
-	}else{
-		str += '<a href="' + link + '" target="_blank">' + json.content + '</a>';
-	}
+	//}else{
+		//str += '<a href="' + link + '" target="_blank">' + json.content + '</a>';
+	//}
 		    	str += '</div>' +
 		    			'<span class="message_body_time">&nbsp;&nbsp;' + json.datetime + '</span>' +
 		    		'</td>' +

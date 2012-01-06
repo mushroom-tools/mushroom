@@ -107,7 +107,11 @@
 	width: 90px;
 }
 
-.dropbox-form-btn{
-	width:185px !important;
+.dropbox-form-btn, .skype-form-btn{
+	width:160px !important;
 	margin-top:10px;
+}
+
+.skype-form-controls{
+	width: 150px;
 }

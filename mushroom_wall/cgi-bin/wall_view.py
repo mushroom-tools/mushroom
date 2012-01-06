@@ -49,7 +49,10 @@ def topbar():
 
 def start_container():
     string = '''<!-- container -->
-                <div class="container-fluid">'''
+                <div class="container-fluid" 
+                        ondragenter="onDragEnter(event)"
+                        ondragover="onDragOver(event)"
+                        ondrop="onDrop(event)">'''
     return(string)
 
 
@@ -103,7 +106,11 @@ def latest_files():
 def skype():
     string = '''<div>
                     <span class="label notice">Skype Conference Call</span>
-                    <p>À¡ ¤Ð¤Ì</p>
+                    <form id="dropbox-form" class="form-stacked" action="javascript: alert('skype! ' + $('#skype-ids').val())">
+                            <label class="skype-form-label">ID(ÄÞ¸¶·Î ±¸ºÐ)</label>
+                            <textarea id="skype-ids" class="skype-form-controls"></textarea>
+                            <input type="submit" class="skype-form-btn btn" value="´ëÈ­ÇÏ±â">
+                        </form>
                 </div>'''
     return(string)
 

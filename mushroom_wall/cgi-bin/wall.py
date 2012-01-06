@@ -1,4 +1,3 @@
-#! /usr/local/bin/python3
 # -*- coding: ms949 -*-
 
 
@@ -53,5 +52,6 @@ print('<script type="text/javascript" src="/lib/jquery-1.6.4.js"></script>')
 print('<script type="text/javascript" src="/lib/bootstrap-alerts.js"></script>')
 print('<script type="text/javascript" src="/js/wall.js"></script>')
 print('<script type="text/javascript" src="/js/websocket.js"></script>')
+print('<script type="text/javascript" src="/js/draganddrop.js"></script>')
 
 print(wall_view.include_footer())
