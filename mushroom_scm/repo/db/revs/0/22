@@ -1,0 +1,37 @@
+PLAIN
+K 10
+README.txt
+V 18
+file 0-1.0.r15/114
+K 13
+mushroom_core
+V 15
+dir 2-1.0.r1/51
+K 12
+mushroom_scm
+V 17
+dir 3-1.0.r14/432
+K 13
+mushroom_wall
+V 17
+dir 0-3.0.r17/770
+K 17
+skype_api_service
+V 17
+dir 0-4.0.r20/349
+END
+ENDREP
+id: 0.0.r22/226
+type: dir
+pred: 0.0.r21/4876
+count: 22
+text: 22 0 213 213 533551898ec7e1ae96ae5e3ae8eb7902
+cpath: /
+copyroot: 0 /
+
+0-21.0.r21/4163 delete-file false false /skypeapidb
+
+2-21.0.r21/4395 delete-file false false /urls.py
+
+
+226 357

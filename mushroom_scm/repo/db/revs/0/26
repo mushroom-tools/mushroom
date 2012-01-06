@@ -1,0 +1,136 @@
+id: 7-26.0.r26/0
+type: file
+count: 0
+text: 24 0 39 27 5e0c0be592c3d4dc94db98728a3409a4 557abad97593152c205253b8bcce5bb505aa48ca 25-p/_8
+cpath: /skype_api_service/regist/views.py
+copyroot: 0 /
+
+id: 3-26.0.r26/193
+type: file
+count: 0
+text: 18 347 4 0 d41d8cd98f00b204e9800998ecf8427e da39a3ee5e6b4b0d3255bfef95601890afd80709 25-p/_9
+cpath: /skype_api_service/regist/__init__.py
+copyroot: 0 /
+
+id: 6-26.0.r26/391
+type: file
+count: 0
+text: 24 52 416 399 e6e3380209e6ea79f560f04edd556a5e c24d2d7338ca801b595f9b329d767257858aa7dc 25-p/_a
+cpath: /skype_api_service/regist/tests.py
+copyroot: 0 /
+
+id: 5-26.0.r26/589
+type: file
+count: 0
+text: 24 481 72 60 d66d26e53e7ac2028454d3dd6f7e92ad f1530395e1a585c021df10ece20dd04a7bda23c9 25-p/_b
+cpath: /skype_api_service/regist/models.py
+copyroot: 0 /
+
+PLAIN
+K 11
+__init__.py
+V 19
+file 3-26.0.r26/193
+K 9
+models.py
+V 19
+file 5-26.0.r26/589
+K 8
+tests.py
+V 19
+file 6-26.0.r26/391
+K 8
+views.py
+V 17
+file 7-26.0.r26/0
+END
+ENDREP
+id: 1-26.0.r26/959
+type: dir
+count: 0
+text: 26 787 159 159 9805c3c9a10c597b6b563f0d62a6574f
+cpath: /skype_api_service/regist
+copyroot: 0 /
+
+PLAIN
+K 11
+__init__.py
+V 17
+file 1-18.0.r20/0
+K 4
+call
+V 19
+dir 3-24.0.r24/1719
+K 9
+manage.py
+V 20
+file 3-18.0.r18/2396
+K 6
+regist
+V 18
+dir 1-26.0.r26/959
+K 11
+settings.py
+V 20
+file 4-18.0.r18/2780
+K 10
+skypeapidb
+V 18
+file 1-23.0.r23/66
+K 7
+urls.py
+V 19
+file 3-23.0.r23/311
+END
+ENDREP
+id: 0-4.0.r26/1385
+type: dir
+pred: 0-4.0.r25/251
+count: 7
+text: 26 1099 273 273 0d19cc124cb606481c93436a6d698450
+cpath: /skype_api_service
+copyroot: 0 /
+
+PLAIN
+K 10
+README.txt
+V 18
+file 0-1.0.r15/114
+K 13
+mushroom_core
+V 15
+dir 2-1.0.r1/51
+K 12
+mushroom_scm
+V 17
+dir 3-1.0.r14/432
+K 13
+mushroom_wall
+V 17
+dir 0-3.0.r17/770
+K 17
+skype_api_service
+V 18
+dir 0-4.0.r26/1385
+END
+ENDREP
+id: 0.0.r26/1766
+type: dir
+pred: 0.0.r25/628
+count: 26
+text: 26 1539 214 214 02acbd1d6986282111f5029b3baca753
+cpath: /
+copyroot: 0 /
+
+_1.0.t25-p add-dir false false /skype_api_service/regist
+
+_7.0.t25-p add-file true false /skype_api_service/regist/views.py
+
+_3.0.t25-p add-file true false /skype_api_service/regist/__init__.py
+
+_6.0.t25-p add-file true false /skype_api_service/regist/tests.py
+
+_5.0.t25-p add-file true false /skype_api_service/regist/models.py
+
+
+1766 1900
