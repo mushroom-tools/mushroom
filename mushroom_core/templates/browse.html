@@ -6,7 +6,7 @@
 {% block description %}{{ '...' }}{% endblock %}
 
 {% block content %}
-<h2 class="blue">mushroom / mushroom_core</h2>
+<h2 class="blue">{{ path }}</h2>
 <p>&nbsp;</p>
 <table class="bordered-table zebra-striped">
 	<thead>
@@ -15,36 +15,31 @@
 		<th>Message</th>
 	</thead>
 	<tbody>
+		{% if path != "/" %}
 		<tr>
-			<td>dashboard/</td>
+			<td>
+				<img src="/static/images/parent.png" />
+				<a href="/browse{{parent_path}}">..</a>
+			</td>
+			<td></th>
+			<td></td>
+		</tr>
+		{% endif %}
+		{% for file in filelist %}
+		<tr>
+			<td>
+				{% if file.fd == 'F' %}
+					<img src="/static/images/file.png" />
+					<a href="#">{{ file.name }}</a>
+				{% else %}
+					<img src="/static/images/folder.png" />
+					<a href="/browse/{{file.path}}">{{ file.name }}</a>
+				{% endif %}
+			</td>
 			<td>about 15 hours ago</th>
 			<td>gitignore added. mushroom_core commit by Jweb</td>
 		</tr>
-		<tr>
-			<td>dashboard/</td>
-			<td>about 15 hours ago</th>
-			<td>gitignore added. mushroom_core commit by Jweb</td>
-		</tr>
-		<tr>
-			<td>dashboard/</td>
-			<td>about 15 hours ago</th>
-			<td>gitignore added. mushroom_core commit by Jweb</td>
-		</tr>
-		<tr>
-			<td>dashboard/</td>
-			<td>about 15 hours ago</th>
-			<td>gitignore added. mushroom_core commit by Jweb</td>
-		</tr>
-		<tr>
-			<td>dashboard/</td>
-			<td>about 15 hours ago</th>
-			<td>gitignore added. mushroom_core commit by Jweb</td>
-		</tr>
-		<tr>
-			<td>dashboard/</td>
-			<td>about 15 hours ago</th>
-			<td>gitignore added. mushroom_core commit by Jweb</td>
-		</tr>
+		{% endfor %}
 	</tbody>
 </table>
 

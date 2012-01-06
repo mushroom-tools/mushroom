@@ -481,8 +481,12 @@ svn.LoadRootRevision()
 filelist = []
 #svn.SVNGetFileListRoot(filelist)
 #svn.SVNGetFileListFolder(filelist, 'Folder1/')
+<<<<<<< HEAD
+svn.SVNGetFileListFolderAndRev(filelist, "test/", "HEAD")
+=======
 #svn.SVNGetFileListFolderAndRev(filelist, "", 7)
 
+>>>>>>> ffdcbe4c65b736ebaef88a1e7a9b059ec3c2fc75
 
 
 def PrintSVNFileList(list):
@@ -534,10 +538,6 @@ def PrintSVNAllFileList(list):
 #test1 = svn.GetFileContext('test.txt')
 #test1 = svn.GetFileContextByRev('test.txt', 10)
 #test1 = svn.GetFileContextByRev('Folder1/inFolder1_test1.txt', 10)
-
-
-
-
 
 
 
