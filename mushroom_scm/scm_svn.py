@@ -458,7 +458,6 @@ else :
 #svn.ShowAllUsers()
 #svn.SetUserPasswd('leehana','hana2');
 
-"""
 def PrintSVNLog():
     for log in svnLogList:
         print 'Revision :'+log.Revision
@@ -474,20 +473,13 @@ def PrintSVNLog():
         print '------------------------------------------'
         
 
-PrintSVNLog()
-"""
 svn.LoadRootRevision()
+PrintSVNLog()
 
 filelist = []
 #svn.SVNGetFileListRoot(filelist)
 #svn.SVNGetFileListFolder(filelist, 'Folder1/')
-<<<<<<< HEAD
-svn.SVNGetFileListFolderAndRev(filelist, "test/", "HEAD")
-=======
-#svn.SVNGetFileListFolderAndRev(filelist, "", 7)
-
->>>>>>> ffdcbe4c65b736ebaef88a1e7a9b059ec3c2fc75
-
+#svn.SVNGetFileListFolderAndRev(filelist, "test/", "HEAD")
 
 def PrintSVNFileList(list):
     for name in list:
@@ -517,7 +509,7 @@ def PrintSVNFileList(list):
 #flist = []
 #svn.SVNGetFileListRoot(flist)
 
-svn.SVNGetFileListRoot(filelist)
+#svn.SVNGetFileListRoot(filelist)
 #PrintSVNFileList(filelist)
 
 

@@ -13,12 +13,14 @@
 	<thead>
 		<th>#</th>
 		<th>Project Name</th>
+		<th>Description</th>
 	</thead>
 	<tbody>
 		{% for project in projects %}
 		<tr>
 			<td>{{ project.id }}</td>
 			<td>{{ project.name }}</td>
+			<td>{{ project.description }}</td>
 		</tr>
 		{% endfor %}
 	</tbody>
@@ -39,21 +41,6 @@
 		<td>Mushroom Project</th>
 		<td>Project is not completed.</td>
 		<td>T.T</td>
-	</tbody>
-</table>
-
-<p>&nbsp;</p><p>&nbsp;</p>
-<h1>Opened Wall</h1>
-<table class="condensed-table">
-	<thead>
-		<th>#</th>
-		<th>Wall Name</th>
-		<th>Attending Members</th>
-	</thead>
-	<tbody>
-		<td>1</td>
-		<td>Mushroom!</td>
-		<td>Jweb, basket, risa243, hanalee</td>
 	</tbody>
 </table>
 

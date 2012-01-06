@@ -1,33 +1,797 @@
 <?xml version="1.0"?>
 <log>
 <logentry
-   revision="3">
-<date>2012-01-05T23:32:05.293188Z</date>
+   revision="35">
+<author>hana</author>
+<date>2012-01-06T06:12:10.201377Z</date>
 <paths>
 <path
    kind="file"
-   action="A">/test/FILE</path>
+   action="A">/mushroom_core/utils/skype/__init__.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/wall/views.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/utils/relativeDates.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/templates/registration/login.html</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/wall/__init__.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/utils/skype/skypekit.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/utils/skype/keypair.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/utils/__init__.py</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/templates/admin</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/transcripts/models.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/templates/admin/base_site.html</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/templates/join_member.html</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/wall/tests.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/templates/dashboard.html</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/utils/skype</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/templates</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/utils/scm_svn.py</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/wall</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/transcripts/views.py</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/utils</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/transcripts/__init__.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/templates/browse.html</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/templates/admin/base.html</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/transcripts/tests.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/templates/timeline.html</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/utils/skype/SkypeApi.py</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/templates/registration</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/wall/models.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/templates/base.html</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/transcripts</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/utils/skype/Skype.py</path>
+</paths>
+<msg>Empty Component
+-jweb</msg>
+</logentry>
+<logentry
+   revision="34">
+<author>hana</author>
+<date>2012-01-06T06:11:39.137600Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/mushroom_core/timeline/tests.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/timeline/models.py</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/timeline</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/timeline/views.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/timeline/__init__.py</path>
+</paths>
+<msg>Source Timeline page
+-kweb</msg>
+</logentry>
+<logentry
+   revision="33">
+<author>hana</author>
+<date>2012-01-06T06:11:20.934559Z</date>
+<paths>
+<path
+   kind="dir"
+   action="A">/mushroom_core/static/css</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/static/js/jquery.timeago.js</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/static/css/transcripts.css</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/static/css/bootstrap.css</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/main</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/static/js/jquery-latest.js</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/static</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/static/images/folder.png</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/static/images</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/main/models.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/static/images/file.png</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/static/css/chatting_room.css</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/static/js</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/static/js/jquery.tablesorter.min.js</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/static/css/style.css</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/static/images/parent.png</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/main/views.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/main/__init__.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/main/tests.py</path>
+</paths>
+<msg>SCM component 
+-kweb</msg>
+</logentry>
+<logentry
+   revision="32">
+<author>hana</author>
+<date>2012-01-06T06:10:54.555050Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/mushroom_core/join_member/tests.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/join_member/models.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/issue/tests.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/issue/models.py</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/join_member</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/issue</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/join_member/views.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/issue/views.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/join_member/__init__.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/issue/__init__.py</path>
+</paths>
+<msg>Issue Board Component</msg>
+</logentry>
+<logentry
+   revision="31">
+<author>hana</author>
+<date>2012-01-06T06:10:34.393897Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/mushroom_core/dashboard/tests.py</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/browse</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/dashboard/models.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/browse/views.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/browse/__init__.py</path>
+<path
+   kind="dir"
+   action="A">/mushroom_core/dashboard</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/browse/tests.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/browse/models.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/dashboard/views.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/dashboard/__init__.py</path>
+</paths>
+<msg>Main Components
+-hweb</msg>
+</logentry>
+<logentry
+   revision="30">
+<author>hana</author>
+<date>2012-01-06T06:00:23.108933Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/mushroom_core/manage.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/mushroomdb</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/__file_list.txt</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/__init__.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/test.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/settings.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/DeveloperKeyPair.pem</path>
+<path
+   kind="file"
+   action="A">/mushroom_core/urls.py</path>
+</paths>
+<msg>Mushroom core module
+initialized
+-jweb</msg>
+</logentry>
+<logentry
+   revision="29">
+<author>hana</author>
+<date>2012-01-06T05:59:34.555156Z</date>
+<paths>
+<path
+   kind="file"
+   action="D">/skype_api_service/regist/views.py.bak</path>
+</paths>
+<msg>delete back-up file</msg>
+</logentry>
+<logentry
+   revision="28">
+<author>hana</author>
+<date>2012-01-06T05:59:15.845086Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/skype_api_service/regist/views.py.bak</path>
+<path
+   kind="file"
+   action="M">/skype_api_service/regist/views.py</path>
+</paths>
+<msg>Complete User registration
+-hweb</msg>
+</logentry>
+<logentry
+   revision="27">
+<author>hana</author>
+<date>2012-01-06T05:58:45.153330Z</date>
+<paths>
+<path
+   kind="file"
+   action="M">/skype_api_service/regist/views.py</path>
+</paths>
+<msg>User Managing
+-hana</msg>
+</logentry>
+<logentry
+   revision="26">
+<author>hana</author>
+<date>2012-01-06T05:58:16.765707Z</date>
+<paths>
+<path
+   kind="dir"
+   action="A">/skype_api_service/regist</path>
+<path
+   kind="file"
+   action="A">/skype_api_service/regist/views.py</path>
+<path
+   kind="file"
+   action="A">/skype_api_service/regist/__init__.py</path>
+<path
+   kind="file"
+   action="A">/skype_api_service/regist/tests.py</path>
+<path
+   kind="file"
+   action="A">/skype_api_service/regist/models.py</path>
+</paths>
+<msg>Skype User Registration
+-jweb</msg>
+</logentry>
+<logentry
+   revision="25">
+<author>hana</author>
+<date>2012-01-06T05:57:49.981175Z</date>
+<paths>
+<path
+   kind="file"
+   action="D">/skype_api_service/__init__.py.bak</path>
+</paths>
+<msg>Delete back-up file
+-jweb</msg>
+</logentry>
+<logentry
+   revision="24">
+<author>hana</author>
+<date>2012-01-06T05:57:28.280934Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/skype_api_service/call/views.py</path>
+<path
+   kind="file"
+   action="A">/skype_api_service/call/__init__.py</path>
+<path
+   kind="file"
+   action="A">/skype_api_service/__init__.py.bak</path>
+<path
+   kind="file"
+   action="A">/skype_api_service/call/tests.py</path>
+<path
+   kind="file"
+   action="A">/skype_api_service/call/models.py</path>
+<path
+   kind="dir"
+   action="A">/skype_api_service/call</path>
+</paths>
+<msg>Skype Call API.
+need User test</msg>
+</logentry>
+<logentry
+   revision="23">
+<author>hana</author>
+<date>2012-01-06T05:56:54.491001Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/skype_api_service/urls.py</path>
+<path
+   kind="file"
+   action="A">/skype_api_service/skypeapidb</path>
+</paths>
+<msg>re-commit right folder</msg>
+</logentry>
+<logentry
+   revision="22">
+<author>hana</author>
+<date>2012-01-06T05:56:28.309503Z</date>
+<paths>
+<path
+   kind="file"
+   action="D">/skypeapidb</path>
+<path
+   kind="file"
+   action="D">/urls.py</path>
+</paths>
+<msg>Missing File.
+Move to project folder
+-jweb</msg>
+</logentry>
+<logentry
+   revision="21">
+<author>hana</author>
+<date>2012-01-06T05:55:57.513742Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/skypeapidb</path>
+<path
+   kind="file"
+   action="A">/urls.py</path>
+</paths>
+<msg>skype demonstration DB.
+need optimizing.</msg>
+</logentry>
+<logentry
+   revision="20">
+<author>hana</author>
+<date>2012-01-06T05:55:00.572485Z</date>
+<paths>
+<path
+   kind="file"
+   action="M">/skype_api_service/__init__.py</path>
+</paths>
+<msg>Add configuration</msg>
+</logentry>
+<logentry
+   revision="19">
+<author>jweb</author>
+<date>2012-01-06T05:54:36.116086Z</date>
+<paths>
+<path
+   kind="file"
+   action="M">/skype_api_service/__init__.py</path>
+</paths>
+<msg>init file changed.</msg>
+</logentry>
+<logentry
+   revision="18">
+<author>hweb</author>
+<date>2012-01-06T05:54:04.391272Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/skype_api_service/manage.py</path>
+<path
+   kind="file"
+   action="A">/skype_api_service/__init__.py</path>
+<path
+   kind="file"
+   action="A">/skype_api_service/settings.py</path>
+</paths>
+<msg>Initializing Skype Service.
+-.hweb</msg>
+</logentry>
+<logentry
+   revision="17">
+<author>jweb</author>
+<date>2012-01-06T05:52:58.569507Z</date>
+<paths>
+<path
+   kind="file"
+   action="M">/mushroom_wall/simple_httpd.py</path>
+</paths>
+<msg>Do not changed it
+without comment</msg>
+</logentry>
+<logentry
+   revision="16">
+<author>hweb</author>
+<date>2012-01-06T05:52:19.392266Z</date>
+<paths>
+<path
+   kind="file"
+   action="M">/mushroom_wall/simple_httpd.py</path>
+</paths>
+<msg>httpd Chaned.
+neend indentation
+-hweb</msg>
+</logentry>
+<logentry
+   revision="15">
+<author>jweb</author>
+<date>2012-01-06T05:51:34.678709Z</date>
+<paths>
+<path
+   kind="file"
+   action="M">/README.txt</path>
+</paths>
+<msg>Log file changed
+-jweb</msg>
+</logentry>
+<logentry
+   revision="14">
+<author>kweb</author>
+<date>2012-01-06T05:50:43.136761Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/mushroom_scm/config.txt</path>
+</paths>
+<msg>Configuration file.
+It is necessary.
+-kweb</msg>
+</logentry>
+<logentry
+   revision="13">
+<author>hana</author>
+<date>2012-01-06T05:49:56.204076Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/mushroom_scm/readme.txt</path>
+</paths>
+<msg>Add document.
+-hana.</msg>
+</logentry>
+<logentry
+   revision="12">
+<author>jweb</author>
+<date>2012-01-06T05:49:20.507034Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/mushroom_scm/test.py</path>
+</paths>
+<msg>Test module.
+Need exception handling.
+reference issue note</msg>
+</logentry>
+<logentry
+   revision="11">
+<author>kweb</author>
+<date>2012-01-06T05:48:20.483601Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/mushroom_scm/scm_svn.py</path>
+</paths>
+<msg>SVN Managing module.
+using XML parsing.
+need documentation</msg>
+</logentry>
+<logentry
+   revision="10">
+<author>hana</author>
+<date>2012-01-06T05:46:54.512684Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/mushroom_wall/index.html</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/.pydevproject</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/transcripts.html</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/wall.html</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/simple_httpd.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/.project</path>
+</paths>
+<msg>Completed mushroom wall
+need module test
+-hana</msg>
+</logentry>
+<logentry
+   revision="9">
+<author>hweb</author>
+<date>2012-01-06T05:46:18.514625Z</date>
+<paths>
+<path
+   kind="dir"
+   action="A">/mushroom_wall/data</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/data/wall_db.sqlite</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/images/file_icon.png</path>
+<path
+   kind="dir"
+   action="A">/mushroom_wall/images</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/data/create_wall_db.py</path>
+</paths>
+<msg>rest of project files.
+-hweb</msg>
+</logentry>
+<logentry
+   revision="8">
+<author>hweb</author>
+<date>2012-01-06T05:45:51.315069Z</date>
+<paths>
+<path
+   kind="dir"
+   action="A">/mushroom_wall/css</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/css/transcripts.css</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/css/bootstrap.css</path>
+<path
+   kind="dir"
+   action="A">/mushroom_wall/js</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/js/websocket.js</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/css/wall.css</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/css/style.css</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/lib/jquery.form.js</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/lib/jquery-1.6.4.js</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/js/wall.js</path>
+<path
+   kind="dir"
+   action="A">/mushroom_wall/lib</path>
+</paths>
+<msg>Standard Djngo Library.
+Do not delete it.
+-jweb</msg>
+</logentry>
+<logentry
+   revision="7">
+<author>hana</author>
+<date>2012-01-06T05:44:53.597768Z</date>
+<paths>
+<path
+   kind="dir"
+   action="A">/mushroom_wall/cgi-bin</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/cgi-bin/wall_view.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/cgi-bin/transcripts.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/cgi-bin/wall.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/cgi-bin/wall_model.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/cgi-bin/transcripts_view.py</path>
+</paths>
+<msg>Cgi-bin 
+Changed by Project Management
+-hana</msg>
+</logentry>
+<logentry
+   revision="6">
+<author>jweb</author>
+<date>2012-01-06T05:44:10.813321Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/mushroom_wall/___test/pywebsocket.txt</path>
+<path
+   kind="dir"
+   action="A">/mushroom_wall/___test</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/___test/drag_and_drop_test.html</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/___test/websocket-chat.html</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/___test/chat_wsh.py</path>
+</paths>
+<msg>Adding Test Module.
+-jweb</msg>
+</logentry>
+<logentry
+   revision="5">
+<author>hweb</author>
+<date>2012-01-06T05:43:30.623022Z</date>
+<paths>
+<path
+   kind="file"
+   action="A">/mushroom_wall/pywebsocket_server/chat_wsh.py</path>
+<path
+   kind="file"
+   action="A">/mushroom_wall/pywebsocket_server/standalone.py</path>
+<path
+   kind="dir"
+   action="A">/mushroom_wall/pywebsocket_server</path>
+</paths>
+<msg>Web socket Chatting server.
+-hweb</msg>
+</logentry>
+<logentry
+   revision="4">
+<author>hweb</author>
+<date>2012-01-06T05:42:48.747627Z</date>
+<paths>
+<path
+   kind="dir"
+   action="A">/skype_api_service</path>
+</paths>
+<msg>Adding New Service
+Conference Call API
+-hweb</msg>
+</logentry>
+<logentry
+   revision="3">
+<author>hana</author>
+<date>2012-01-06T05:41:58.815771Z</date>
+<paths>
+<path
+   kind="dir"
+   action="A">/mushroom_wall</path>
 </paths>
 <msg></msg>
 </logentry>
 <logentry
    revision="2">
-<date>2012-01-05T23:31:11.875480Z</date>
-<paths>
-<path
-   kind="dir"
-   action="A">/test</path>
-</paths>
-<msg>folder added</msg>
-</logentry>
-<logentry
-   revision="1">
-<date>2012-01-05T23:29:17.402735Z</date>
+<author>hweb</author>
+<date>2012-01-06T05:41:12.364114Z</date>
 <paths>
 <path
    kind="file"
-   action="A">/README</path>
+   action="M">/README.txt</path>
 </paths>
-<msg>test</msg>
+<msg></msg>
+</logentry>
+<logentry
+   revision="1">
+<author>jweb</author>
+<date>2012-01-06T05:40:34.889971Z</date>
+<paths>
+<path
+   kind="dir"
+   action="A">/mushroom_core</path>
+<path
+   kind="file"
+   action="A">/README.txt</path>
+<path
+   kind="dir"
+   action="A">/mushroom_scm</path>
+</paths>
+<msg></msg>
 </logentry>
 </log>

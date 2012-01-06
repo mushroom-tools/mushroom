@@ -13,18 +13,16 @@ import datetime
 def browse_page(request, path):
 	if path == None:
 		path = ''
-		path_str = '/'
-	else:
-		path_str = '/' + path
-		
+
 	filelist = []
 
 	svn = MushroomScmSvn()
+	svn.LoadRootRevision()
 	svn.SVNGetFileListFolderAndRev(filelist, path, "HEAD")
 
 	for file in filelist:
-		file.rev = "r" + file.rev
 		file.message = svn.GetCommitMsgByRev(file.rev)
+		file.rev = "r" + file.rev
 		file.date = datetime.datetime.strptime(file.date, "%Y-%m-%dT%H:%M:%S.%fZ")
 		file.date = timesince(file.date)
 
@@ -32,15 +30,20 @@ def browse_page(request, path):
 			file.name = file.path.split("/")[-1]
 		else:
 			file.name = file.path.split("/")[-1] + "/"
+
+		file.path = path + '/' + file.path
 	
-	split_path = path_str.split("/")
-	split_path.pop()
-	split_path.pop()
-	parent_path = "/".join(split_path) + "/"
+	split_path = path.split("/")
+	if len(split_path) > 1:
+		split_path.pop()
+		split_path.pop()
+		parent_path = "/".join(split_path) + "/"
+	else:
+		parent_path = ''
 		
 	template = get_template('browse.html')
 	variables = Context({
-		'path': path_str,
+		'path': path,
 		'parent_path': parent_path,
 		'filelist': filelist,
 		'user': request.user,
