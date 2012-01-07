@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 #! /usr/local/bin/python3
 # -*- coding: utf-8 -*-
+=======
+# -*- coding: ms949 -*-
+
+>>>>>>> 735197ad620df3773bffe8905da1e69b4f9088bf
 
 import wall_view
 import wall_model
@@ -52,5 +57,6 @@ print('<script type="text/javascript" src="/lib/jquery-1.6.4.js"></script>')
 print('<script type="text/javascript" src="/lib/bootstrap-alerts.js"></script>')
 print('<script type="text/javascript" src="/js/wall.js"></script>')
 print('<script type="text/javascript" src="/js/websocket.js"></script>')
+print('<script type="text/javascript" src="/js/draganddrop.js"></script>')
 
 print(wall_view.include_footer())
