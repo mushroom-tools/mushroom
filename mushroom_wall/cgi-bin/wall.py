@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 #! /usr/local/bin/python3
 # -*- coding: utf-8 -*-
-=======
-# -*- coding: ms949 -*-
-
->>>>>>> 735197ad620df3773bffe8905da1e69b4f9088bf
 
 import wall_view
 import wall_model

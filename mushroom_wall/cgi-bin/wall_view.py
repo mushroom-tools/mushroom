@@ -106,15 +106,11 @@ def latest_files():
 def skype():
     string = '''<div>
                     <span class="label notice">Skype Conference Call</span>
-<<<<<<< HEAD
-                    <p>ì›© ã… ã…œ</p>
-=======
                     <form id="dropbox-form" class="form-stacked" action="javascript: alert('skype! ' + $('#skype-ids').val())">
                             <label class="skype-form-label">ID(ÄÞ¸¶·Î ±¸ºÐ)</label>
                             <textarea id="skype-ids" class="skype-form-controls"></textarea>
                             <input type="submit" class="skype-form-btn btn" value="´ëÈ­ÇÏ±â">
-                        </form>
->>>>>>> 735197ad620df3773bffe8905da1e69b4f9088bf
+                    </form>
                 </div>'''
     return(string)
 
