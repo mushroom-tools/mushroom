@@ -1,51 +1,45 @@
 <?xml version="1.0"?>
 <lists>
 <list
-   path="svn://127.0.0.1">
+   path="svn://127.0.0.1/mushroom_core/timeline">
 <entry
    kind="file">
-<name>README.txt</name>
-<size>81</size>
+<name>__init__.py</name>
+<size>0</size>
 <commit
-   revision="15">
-<author>jweb</author>
-<date>2012-01-06T05:51:34.678709Z</date>
-</commit>
-</entry>
-<entry
-   kind="dir">
-<name>mushroom_core</name>
-<commit
-   revision="35">
+   revision="34">
 <author>hana</author>
-<date>2012-01-06T06:12:10.201377Z</date>
+<date>2012-01-06T06:11:39.137600Z</date>
 </commit>
 </entry>
 <entry
-   kind="dir">
-<name>mushroom_scm</name>
+   kind="file">
+<name>models.py</name>
+<size>60</size>
 <commit
-   revision="14">
-<author>kweb</author>
-<date>2012-01-06T05:50:43.136761Z</date>
-</commit>
-</entry>
-<entry
-   kind="dir">
-<name>mushroom_wall</name>
-<commit
-   revision="17">
-<author>jweb</author>
-<date>2012-01-06T05:52:58.569507Z</date>
-</commit>
-</entry>
-<entry
-   kind="dir">
-<name>skype_api_service</name>
-<commit
-   revision="29">
+   revision="34">
 <author>hana</author>
-<date>2012-01-06T05:59:34.555156Z</date>
+<date>2012-01-06T06:11:39.137600Z</date>
+</commit>
+</entry>
+<entry
+   kind="file">
+<name>tests.py</name>
+<size>399</size>
+<commit
+   revision="34">
+<author>hana</author>
+<date>2012-01-06T06:11:39.137600Z</date>
+</commit>
+</entry>
+<entry
+   kind="file">
+<name>views.py</name>
+<size>554</size>
+<commit
+   revision="34">
+<author>hana</author>
+<date>2012-01-06T06:11:39.137600Z</date>
 </commit>
 </entry>
 </list>

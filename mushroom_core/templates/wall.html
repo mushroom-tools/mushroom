@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Mushroom | {% block title %}{% endblock %}</title>
+		
+		<!-- style -->
+        <link rel="stylesheet" href="/static/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/wall.css">
+		<script type="text/javascript" src="/static/js/jquery-latest.js"></script>
+	</head>
+	<body>
+		<!-- topbar -->
+		<div class="topbar">
+			<div class="fill">
+				<div class="container">
+					<a class="brand" href="/">Mushroom</a>
+					<ul class="nav">
+						{% if request.path != '/join_member/' %}
+						<li {% if request.path == '/dashboard/' %} class="active"{% endif %}>
+							<a href="/dashboard">Dashboard</a>
+						</li>
+						<li {% if request.path == '/timeline/' %} class="active"{% endif %}>
+							<a href="/timeline">Timeline</a>
+						</li>
+						<li {% if request.path == '/wall/' %} class="active"{% endif %}>
+							<a href="/wall">Wall</a>
+						</li>
+						<li {% if request.path == '/transcripts/' %} class="active"{% endif %}>
+							<a href="/transcripts">Transcripts</a>
+						</li>
+						<li {% if request.path == '/browse/' %} class="active"{% endif %}>
+							<a href="/browse">Browse Source</a>
+						</li>
+						<li {% if request.path == '/issue/' %} class="active"{% endif %}>
+							<a href="/issue">Issues</a>
+						</li>
+						<li {% if request.path == '/admin/' %} class="active"{% endif %}>
+							<a href="/admin">Admin</a>
+						</li>
+						{% else %}
+						<li><a href="/">Home</a></li>
+						<li><a href="/login">Login</a></li>
+						<li class="active"><a href="/join_member">Join Member</a></li>
+						{% endif %}
+					</ul>
+					{% if user.is_active %}
+					<ul class="nav secondary-nav">
+						<li><a href="#">Hi! <strong>{% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %}</strong></a></li>
+						<li><a href="/logout">[Logout]</a></li>
+					</ul>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<!-- top end -->
+<!-- container -->
+
+                <div class="container-fluid">
+<!-- sidebar -->
+                <div class="sidebar">
+                    <div id="chat-desc-wrapper">
+                        <div class="chat-desc-title">
+                            <h1>Mushroom Wall</h1>
+                        </div>
+<div>
+                    <span class="label notice">Skype Conference Call</span>
+					<form id="dropbox-form" class="form-stacked" action="/confcall">
+						<label calss="skype-form-label">ID(|로구분)</label>
+						<textarea id="skype-ids" name="targets" class="skype-form-controls">youneedpark|jwebkr|risa_243|hanawasborn</textarea>
+						<input type="submit" class="skype-form-btn btn" value="대화하기" />
+					</form>
+                </div>
+</div></div>
+<!-- chat -->
+                <div class="content">
+                    <div id="chat-wrapper">
+						<table id="chat_table" class="chat">
+							{% for log in logs %}
+							<tr class="text_message message">
+                    			<td class="message_person">
+                        			<span class="author">{{ log.0 }}</span>
+			                    </td>
+                    			<td class="message_body">
+                        			<div class="message_body_content">{{ log.1 }}</div>
+                        			<span class="message_body_time">{{ log.2 }}</span>
+                    			</td>
+                			</tr>
+							{% endfor %}
+						</table>
+<!-- speak form -->
+                <div class="speak">
+                    
+                    <div>
+                        <form id="chat_form" action="javascript: submitMessage()" >
+                            <table><tr>
+                                <td class="speak_person_td"><input type="text" name="name" id="speak_person" placeholder="name"></td>
+                                <td class="speak_body_td"><input type="text" name="content" id="speak_body" placeholder="text here"></td>
+                                <td class="speak_send_td"><input type="submit" id="speak_send" class="btn" value="Send Message" disabled></td>
+                            </tr></table>
+
+                        </form>
+                    </div>
+                </div>
+</div>
+</div>
+<script type="text/javascript">window.scrollBy(0, document.body.scrollHeight);</script>
+<script type="text/javascript" src="/static/js/jquery-latest.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap-alerts.js"></script>
+<script type="text/javascript" src="/static/js/wall.js"></script>
+<script type="text/javascript" src="/static/js/websocket.js"></script>
+
+</body></html>

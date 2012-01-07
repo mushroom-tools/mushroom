@@ -6,17 +6,20 @@ from django.template.loader import get_template
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from issues.models import Project
+from issues.models import Issue
 
 from utils.skype.SkypeApi import SkypeApi
 
 @login_required
 def dashboard_page(request):
 	projects = Project.objects.order_by('-id')
+	issues = Issue.objects.order_by('-id')
 	template = get_template('dashboard.html')
 	variables = Context({
 		'user': request.user,
 		'request': request,
 		'projects': projects,
+		'issues': issues,
 	})
 	output = template.render(variables)
 	return HttpResponse(output)

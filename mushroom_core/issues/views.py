@@ -38,7 +38,9 @@ def issues_page(request):
 	})
 	output = template.render(variables)
 	return HttpResponse(output)
-	
+
+def issue_project_page(request, issue_id):	
+	return HttpResponse(output)
 def issue_page(request, issue_id):
 	template = get_template('issue.html')
 	issue = Issue.objects.get(id=issue_id)
@@ -75,6 +77,7 @@ def issue_create_page(request):
 		return redirect('/login/')
 	
 	if request.method == 'POST':
+	
 		form = IssueCreateForm(request.POST)
 		
 		if form.is_valid():
@@ -87,33 +90,30 @@ def issue_create_page(request):
 			issue = Issue(name=name, description=description, user_id=user_id, duedate=duedate, status=status)
 			issue.save()
 			
-			member1 = form.cleaned_data['member1']
-			member2 = form.cleaned_data['member2']
-			member3 = form.cleaned_data['member3']
-			member4 = form.cleaned_data['member4']
+			members = form.cleaned_data['members']
+			members = members.split()
 			
-			if member1 != "0":
-				assign = Assign(issue_id=issue.id, user_id=member1)
+			for member in members:
+				user = User.objects.get(username=member);
+				assign = Assign(user=user, issue=issue)
 				assign.save()
 				
-			if member2 != "0":
-				assign = Assign(issue_id=issue.id, user_id=member2)
-				assign.save()
-				
-			if member3 != "0":
-				assign = Assign(issue_id=issue.id, user_id=member3)
-				assign.save()
-				
-			if member4 != "0":
-				assign = Assign(issue_id=issue.id, user_id=member4)
-				assign.save()
-			
 			return HttpResponseRedirect('/issue')
 		else:
 			return HttpResponseRedirect('-')
 			
 	else:
-		form = IssueCreateForm()
+		users = User.objects.all()
+		cowork = CoWork.objects.get(user = request.user)
+		cws = CoWork.objects.filter(team = cowork.team)
+		
+		members = ''
+		for cw in cws:
+			members += cw.user.username
+			members += ' '
+		
+		data = {'members': members}
+		form = IssueCreateForm(data)
 
 	return render_to_response('issue_create.html', {'form':form})
 	
@@ -123,14 +123,17 @@ def issue_edit_page(request, issue_id):
 	
 	issue = Issue.objects.get(id=issue_id)
 	
+	assigns = Assign.objects.filter(issue=issue)
+	members = ''
+	for assign in assigns:
+		members += assign.user.username
+		members += ' '
+		
 	data = {'name': issue.name, 
 	'description': issue.description,
 	'duedate': issue.duedate,
 	'status': issue.status,
-	'member1': 4,
-	'member2': 1,
-	'member3': 2,
-	'member4': 3,}
+	'members': members}
 	
 	if request.method == 'POST':
 		form = IssueCreateForm(request.POST)
@@ -149,19 +152,20 @@ def issue_edit_page(request, issue_id):
 			issue.status=status
 			issue.save()
 			
-			member1 = form.cleaned_data['member1']
-			member2 = form.cleaned_data['member2']
-			member3 = form.cleaned_data['member3']
-			member4 = form.cleaned_data['member4']
-						
-			assign.user_id=member1
-			assign.save()
-			assign.user_id=member2
-			assign.save()
-			assign.user_id=member3
-			assign.save()
-			assign.user_id=member4
-			assign.save()
+			members = form.cleaned_data['members']
+			members = members.split()
+			
+			assigns = Assign.objects.filter(issue=issue)
+			for assign in assigns:
+				assign.delete()
+			
+			members = form.cleaned_data['members']
+			members = members.split()
+			
+			for member in members:
+				user = User.objects.get(username=member);
+				assign = Assign(user=user, issue=issue)
+				assign.save()
 			
 			return HttpResponseRedirect('/issue')
 			

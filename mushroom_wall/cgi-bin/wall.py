@@ -1,6 +1,5 @@
 #! /usr/local/bin/python3
-# -*- coding: ms949 -*-
-
+# -*- coding: utf-8 -*-
 
 import wall_view
 import wall_model
@@ -11,7 +10,7 @@ print(wall_view.topbar())
 print(wall_view.start_container())
 print(wall_view.start_sidebar())
 
-# dropbox ÀÎÁõÇß´ÂÁö °Ë»çÇØº¸°í ¾ÈÇßÀ¸¸é
+# dropbox ì¸ì¦í–ˆëŠ”ì§€ ê²€ì‚¬í•´ë³´ê³  ì•ˆí–ˆìœ¼ë©´
 #print(wall_view.dropbox_auth())
 
 
@@ -29,14 +28,14 @@ list = wall_model.get_transcript_all()
 for msg in list:
     print(wall_view.message(msg[0], msg[1], msg[2]))
 
-#print(wall_view.message('¹ÚÀ±Èñ', '¾È³ç ¤»¤»', '03:40 AM'))
-#print(wall_view.message('¹ÚÀ±Èñ', 'ÇìÇì', '03:40 AM'))
-#print(wall_view.message('¹ÚÀ±Èñ', '¤¾¤¾¤¾¤¾', '03:40 AM'))
-#print(wall_view.message('ÀÌÇÏ³ª', '»çÁø.jpg', '03:40 AM', False, 'http://www.google.co.kr/images/nav_logo99.png'))
-#print(wall_view.message('ÀÌÇÏ³ª', '¤»¤§¤»¤§', '03:40 AM'))
+#print(wall_view.message('ë°•ìœ¤í¬', 'ì•ˆë…• ã…‹ã…‹', '03:40 AM'))
+#print(wall_view.message('ë°•ìœ¤í¬', 'í—¤í—¤', '03:40 AM'))
+#print(wall_view.message('ë°•ìœ¤í¬', 'ã…ã…ã…ã…', '03:40 AM'))
+#print(wall_view.message('ì´í•˜ë‚˜', 'ì‚¬ì§„.jpg', '03:40 AM', False, 'http://www.google.co.kr/images/nav_logo99.png'))
+#print(wall_view.message('ì´í•˜ë‚˜', 'ã…‹ã„·ã…‹ã„·', '03:40 AM'))
 print(wall_view.end_chat_table())
 
-# dropbox ÀÎÁõÇß´ÂÁö °Ë»çÇØº¸°í ¾ÈÇßÀ¸¸é
+# dropbox ì¸ì¦í–ˆëŠ”ì§€ ê²€ì‚¬í•´ë³´ê³  ì•ˆí–ˆìœ¼ë©´
 #print(wall_view.dropbox_auth_warning())
 
 
@@ -47,7 +46,7 @@ print(wall_view.end_content())
 
 print(wall_view.end_container())
 
-#javascript Ãß°¡
+#javascript ì¶”ê°€
 print('<script type="text/javascript">window.scrollBy(0, document.body.scrollHeight);</script>')
 print('<script type="text/javascript" src="/lib/jquery-1.6.4.js"></script>')
 print('<script type="text/javascript" src="/lib/bootstrap-alerts.js"></script>')

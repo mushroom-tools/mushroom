@@ -1,4 +1,4 @@
-# -*- coding: ms949 -*-
+# -*- coding: utf-8 -*-
 
 
 def response():
@@ -9,7 +9,7 @@ def response():
 
 
 def include_header():
-    # <meta charset="UTF-8"> Áö¿ì´Ï±î ÇÑ±ÛÀÌ ¾È ±úÁ®¼­ ÀÏ´Ü Áö¿ò ^.^;
+    # <meta charset="UTF-8"> ì§€ìš°ë‹ˆê¹Œ í•œê¸€ì´ ì•ˆ ê¹¨ì ¸ì„œ ì¼ë‹¨ ì§€ì›€ ^.^;
     string = '''<!DOCTYPE html>
                     <html>
                         <head>
@@ -70,7 +70,7 @@ def start_sidebar():
 def dropbox_auth():
     string = '''<div class="dropbox-auth alert-message block-message error">
                         <span class="label important">Dropbox Authentication</span>
-                        <p>»ç¿ëÇÒ Dropbox¸¦ ¼³Á¤ÇØÁÖ½Ê½Ã¿À</p>
+                        <p>ì‚¬ìš©í•  Dropboxë¥¼ ì„¤ì •í•´ì£¼ì‹­ì‹œì˜¤</p>
                         <form id="dropbox-form">
                             <label class="dropbox-form-label">App Key</label>
                             <input class="dropbox-form-controls">
@@ -81,7 +81,7 @@ def dropbox_auth():
                                 <option>App Folder</option>
                                 <option>Dropbox</option>
                             </select>
-                            <input type="submit" class="dropbox-form-btn btn" value="ÀÎÁõÇÏ±â">
+                            <input type="submit" class="dropbox-form-btn btn" value="ì¸ì¦í•˜ê¸°">
                         </form>
                     </div>'''
     return(string)
@@ -93,7 +93,7 @@ def latest_files():
     string = '''<div>
                     <span class="label warning">Latest 2 files</span>
                     <span>&nbsp;&nbsp;<a href="#">more..</a></span>
-                    <ul><li><a href="#">½ÃÀÛ°úÁ¦¹®¼­.gul</a></li><li><a href="#">»çÁø.jpg</a></li></ul>
+                    <ul><li><a href="#">ì‹œì‘ê³¼ì œë¬¸ì„œ.gul</a></li><li><a href="#">ì‚¬ì§„.jpg</a></li></ul>
                 </div>'''
     return(string)
 
@@ -103,7 +103,7 @@ def latest_files():
 def skype():
     string = '''<div>
                     <span class="label notice">Skype Conference Call</span>
-                    <p>À¡ ¤Ğ¤Ì</p>
+                    <p>ì›© ã… ã…œ</p>
                 </div>'''
     return(string)
 
@@ -176,8 +176,8 @@ def end_chat_table():
 def dropbox_auth_warning():
     string = '''<!-- warning -->
                 <div class="alert-message danger" data-alert="alert">
-                    <a class="close" href="#">¡¿</a>
-                    <p><strong>¾Ë¸²!</strong>&nbsp;&nbsp;&nbsp;ÆÄÀÏ ¾÷·Îµå¸¦ À§ÇÑ Dropbox ÀÎÁõÀÌ ÇÊ¿äÇÕ´Ï´Ù. ¿ìÃø »ó´ÜÀÇ Æû¿¡¼­ ÀÎÁõÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.</p>
+                    <a class="close" href="#">Ã—</a>
+                    <p><strong>ì•Œë¦¼!</strong>&nbsp;&nbsp;&nbsp;íŒŒì¼ ì—…ë¡œë“œë¥¼ ìœ„í•œ Dropbox ì¸ì¦ì´ í•„ìš”í•©ë‹ˆë‹¤. ìš°ì¸¡ ìƒë‹¨ì˜ í¼ì—ì„œ ì¸ì¦í•˜ì‹œê¸° ë°”ëë‹ˆë‹¤.</p>
                 </div>'''
     return(string)
 

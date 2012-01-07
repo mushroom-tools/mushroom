@@ -1,6 +1,5 @@
 #! /usr/local/bin/python3
-# -*- coding: ms949 -*-
-
+# -*- coding: utf-8 -*-
 
 def response():
     string = 'Content-type: text/html\n\n'
@@ -9,7 +8,7 @@ def response():
 
 
 def include_header():
-    # <meta charset="UTF-8"> Áö¿ì´Ï±î ÇÑ±ÛÀÌ ¾È ±úÁ®¼­ ÀÏ´Ü Áö¿ò ^.^;
+    # <meta charset="UTF-8"> ì§€ìš°ë‹ˆê¹Œ í•œê¸€ì´ ì•ˆ ê¹¨ì ¸ì„œ ì¼ë‹¨ ì§€ì›€ ^.^;
     string = '''<!DOCTYPE html>
                     <html>
                         <head>

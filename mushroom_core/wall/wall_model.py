@@ -3,7 +3,7 @@
 import sqlite3
 from datetime import datetime
 
-db_name = 'data/wall_db.sqlite'
+db_name = 'wall_db.sqlite'
 
 
 def test():
@@ -13,7 +13,7 @@ def put_text(name, text):
     connection = sqlite3.connect(db_name)
     connection.text_factory = str
     cursor = connection.cursor()
-    result = cursor.execute("INSERT INTO wall_logs (name, content, is_text) VALUES (?,?,1)", (name, text))
+    result = cursor.execute("INSERT INTO wall_logs (name, content, is_text, datetime) VALUES (?,?,1,?)", (name, text, datetime.now().strftime("%Y-%m-%d %H:%m:%S")))
     connection.commit()
     connection.close()
 
@@ -25,9 +25,6 @@ def put_filename(name, filename):
     result = cursor.execute("INSERT INTO wall_logs (name, content, is_text) VALUES (?,?,0)", (name, filename))
     connection.commit()
     connection.close()
-
-
-
 
 # 파라미터 문자열로 입력해야함! 06 <- 이런 것도 맞춰서 
 def get_transcript_day(year, month, day):

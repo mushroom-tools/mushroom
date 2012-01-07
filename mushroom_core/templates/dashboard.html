@@ -32,16 +32,20 @@
 <table class="condensed-table">
 	<thead>
 		<th>#</th>
-		<th>Concerned Project</th>
 		<th>Issue Name</th>
 		<th>Description</th>
+		<th>Status</th>
 	</thead>
 	<tbody>
-		<td>1</td>
-		<td>Mushroom Project</th>
-		<td>Project is not completed.</td>
-		<td>T.T</td>
+		{% for issue in issues %}
+		<tr>
+			<td>{{ issue.id }}</td>
+			<td>{{ issue.name }}</td>
+			<td>{{ issue.description }}</td>
+			<td>{{ issue.status }}</td>
+		</tr>
+		{% endfor %}
 	</tbody>
 </table>
-
+<p>&nbsp;</p>
 {% endblock %}

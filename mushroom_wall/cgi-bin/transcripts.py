@@ -10,12 +10,12 @@ print(transcripts_view.response())
 print(transcripts_view.include_header())
 print(transcripts_view.topbar())
 print(transcripts_view.start_container())
-#print(transcripts_view.search())        # search¿¡¼­ Ã£´Â ±â´É.....
+#print(transcripts_view.search())        # searchì—ì„œ ì°¾ëŠ” ê¸°ëŠ¥.....
 
 print(transcripts_view.start_transcripts())
 
 
-# db¿¡¼­ °¡Á®¿Í¼­ Ãâ·Â
+# dbì—ì„œ ê°€ì ¸ì™€ì„œ ì¶œë ¥
 list = wall_model.get_transcript_day_list()
 i = 0
 while i< len(list):
@@ -28,6 +28,6 @@ print(transcripts_view.end_container())
 
 
 
-# javascript Ãß°¡
+# javascript ì¶”ê°€
 
 print(transcripts_view.include_footer())
